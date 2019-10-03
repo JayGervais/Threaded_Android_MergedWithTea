@@ -30,6 +30,8 @@ public class CustomerListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_list);
 
 
+
+
         lvCustomers = findViewById(R.id.lvCustomers);
         btnNewCustomer = findViewById(R.id.btnNewCustomer);
         lvCustomers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,6 +53,8 @@ public class CustomerListActivity extends AppCompatActivity {
         });
 
         CustomerDB.GetCustomerListData(DBHelper.apiURL()+"/api/customer_data.php",this,lvCustomers);
+
+
     }
 
     @Override

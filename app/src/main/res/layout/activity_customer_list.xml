@@ -5,25 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".customer.CustomerListActivity">
-
-    <Button
-        android:id="@+id/btnNewCustomer"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Customer"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#015E50"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="New Customer" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <ListView
         android:id="@+id/lvCustomers"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnNewCustomer"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="#dfe6e1"
+        android:headerDividersEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189">
+        app:layout_constraintTop_toBottomOf="@+id/textView55">
 
     </ListView>
+    <Button
+        android:id="@+id/btnNewCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="#22a15f"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColor="#FFFFFF"
+        android:text="Add New Customer"
+        app:layout_constraintBottom_toBottomOf="@+id/textView55"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
