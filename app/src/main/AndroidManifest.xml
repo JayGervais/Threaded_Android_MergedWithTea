@@ -13,32 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".supplier.SupplierNewActivity"></activity>
+        <activity android:name=".supplier.SupplierEditActivity"></activity>
+        <activity android:name=".supplier.SupplierNewActivity" />
         <activity android:name=".supplier.SupplierDetailActivity" />
-
         <activity android:name=".product.ProductEditActivity" />
         <activity android:name=".product.ProductNewActivity" />
-        <activity android:name=".product.ProductListActivity"/>
-        <activity android:name=".product.ProductSuppliersListActivity" >
+        <activity android:name=".product.ProductListActivity" />
+        <activity android:name=".product.ProductSuppliersListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".product.ProductListActivity" />
-
-
         </activity>
         <activity android:name=".booking.BookingDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".booking.BookingDetailActivity" />
         </activity>
-        <activity android:name=".booking.BookingListActivity"/>
+        <activity android:name=".booking.BookingListActivity" />
         <activity android:name=".agent.AgentListActivity" />
         <activity android:name=".agent.AgentEditActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".booking.BookingDetailActivity" />
         </activity>
-        <activity android:name=".agent.AddAgentActivity"/>
+        <activity android:name=".agent.AddAgentActivity" />
         <activity android:name=".agent.AgentDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

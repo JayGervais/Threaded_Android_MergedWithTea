@@ -1,16 +1,94 @@
 package com.example.day10_assignment_v1.supplier;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.customer.Customer;
 
 public class SupplierDetailActivity extends AppCompatActivity {
+TextView tvSupplierId,tvSupContactId,tvSupConCompany,tvSupConFirstName,tvSupConLastName,
+    tvSupConAddress,tvSupConCity,tvSupConProv,tvSupConPostal,
+    tvSupConCountry,tvSupConBusPhone,tvSupConFax,tvSupConEmail,
+    tvSupConURL,tvAffiliationId;
+Button btnUpdateSupplier;
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_detail);
+
+        tvSupplierId=findViewById(R.id.tvSupplierId);
+        tvSupContactId=findViewById(R.id.tvSupContactId);
+        tvSupConCompany=findViewById(R.id.tvSupConCompany);
+        tvSupConFirstName=findViewById(R.id.tvSupConFirstName);
+        tvSupConLastName=findViewById(R.id.tvSupConLastName);
+        tvSupConAddress=findViewById(R.id.tvSupConAddress);
+        tvSupConCity=findViewById(R.id.tvSupConCity);
+        tvSupConProv=findViewById(R.id.tvSupConProv);
+        tvSupConPostal=findViewById(R.id.tvSupConPostal);
+        tvSupConCountry=findViewById(R.id.tvSupConCountry);
+        tvSupConBusPhone=findViewById(R.id.tvSupConBusPhone);
+        tvSupConFax=findViewById(R.id.tvSupConFax);
+        tvSupConEmail=findViewById(R.id.tvSupConEmail);
+        tvSupConURL=findViewById(R.id.tvSupConURL);
+        tvAffiliationId=findViewById(R.id.tvAffiliationId);
+
+        btnUpdateSupplier=findViewById(R.id.btnUpdateSupplier);
+
+        final Supplier supplierObj = getIntent().getParcelableExtra("supplier");
+
+        //final Integer customerId = customerObj.getCustomerId();
+        final Integer supplierId =supplierObj.getSupplierId();
+        final Integer supContactId = supplierObj.getSupplierContactId();
+        final String supConFirstName = supplierObj.getSupConFirstName();
+        final String supConLastName = supplierObj.getSupConLastName();
+        final String supConCompany = supplierObj.getSupConCompany();
+        final String supConAddress = supplierObj.getSupConAddress();
+        final String supConCity = supplierObj.getSupConCity();
+        final String supConProv = supplierObj.getSupConProv();
+        final String supConPostal  =supplierObj.getSupConPostal();
+        final String supConCountry = supplierObj.getSupConCountry();
+        final String supConBusPhone = supplierObj.getSupConBusPhone();
+        final String supConFax = supplierObj.getSupConFax();
+        final String supConEmail = supplierObj.getSupConEmail();
+        final String supConURL = supplierObj.getSupConURL();
+        final String affiliationId = supplierObj.getProdName();
+
+
+        //tvSupplierId.setText(supplierId);
+       // tvSupContactId.setText(supContactId);
+        tvSupConFirstName.setText(supConFirstName);
+       tvSupConLastName.setText(supConLastName);
+        tvSupConCompany.setText(supConCompany);
+        tvSupConAddress.setText(supConAddress);
+        tvSupConCity.setText(supConCity);
+        tvSupConProv.setText(supConProv);
+        tvSupConPostal.setText(supConPostal);
+        tvSupConCountry.setText(supConCountry);
+        tvSupConBusPhone.setText(supConBusPhone);
+        tvSupConFax.setText(supConFax);
+        tvSupConEmail.setText(supConEmail);
+        tvSupConURL.setText(supConURL);
+        tvAffiliationId.setText(affiliationId);
+
+
     }
 }
