@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.day10_assignment_v1.agent.AgentListActivity;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
+import com.example.day10_assignment_v1.customer.CustomerListActivity;
+import com.example.day10_assignment_v1.product.ProductListActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity
             case R.id.menu_bookings:
                 startActivity(new Intent(this, BookingListActivity.class));
                 return true;
+            case R.id.menu_customers:
+                startActivity(new Intent(this, CustomerListActivity.class));
+                return true;
+            case R.id.menu_products:
+                startActivity(new Intent(this, ProductListActivity.class));
+                return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

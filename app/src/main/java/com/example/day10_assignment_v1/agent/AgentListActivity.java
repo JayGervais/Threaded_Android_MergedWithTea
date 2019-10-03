@@ -18,6 +18,8 @@ import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.MainActivity;
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
+import com.example.day10_assignment_v1.customer.CustomerListActivity;
+import com.example.day10_assignment_v1.product.ProductListActivity;
 
 public class AgentListActivity extends AppCompatActivity
 {
@@ -78,6 +80,13 @@ public class AgentListActivity extends AppCompatActivity
                 return true;
             case R.id.menu_bookings:
                 startActivity(new Intent(this, BookingListActivity.class));
+                return true;
+
+            case R.id.menu_customers:
+                startActivity(new Intent(this, CustomerListActivity.class));
+                return true;
+            case R.id.menu_products:
+                startActivity(new Intent(this, ProductListActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

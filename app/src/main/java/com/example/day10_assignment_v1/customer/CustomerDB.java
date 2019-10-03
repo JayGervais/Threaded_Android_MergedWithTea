@@ -90,59 +90,59 @@ public class CustomerDB
         DownloadJSON getJSON = new DownloadJSON();
         getJSON.execute();
     }
-//    public static void GetCustomerListData(final String urlWebService, final Context cont, final ListView list)
-//    {
-//        class DownloadJSON extends AsyncTask<Void, Void, String>
-//        {
-//            @Override
-//            protected void onPreExecute()
-//            {
-//                super.onPreExecute();
-//            }
-//
-//            @Override
-//            protected void onPostExecute(String s)
-//            {
-//                super.onPostExecute(s);
-//                try
-//                {
-//                    JSONArray jsonArray = new JSONArray(s);
-//
-//                    ArrayAdapter<Customer> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
-//                    for (int i = 0; i < jsonArray.length(); i++)
-//                    {
-//                        JSONObject obj = jsonArray.getJSONObject(i);
-//
-//                        arrayAdapter.add(new Customer(Integer.parseInt(obj.getString("CustomerId")),
-//                                obj.getString("CustFirstName"),
-//                                obj.getString("CustLastName"),
-//                                obj.getString("CustAddress"),
-//                                obj.getString("CustCity"),
-//                                obj.getString("CustProv"),
-//                                obj.getString("CustPostal"),
-//                                obj.getString("CustCountry"),
-//                                obj.getString("CustHomePhone"),
-//                                obj.getString("CustBusPhone"),
-//                                obj.getString("CustEmail"),
-//                                obj.getString("AgentId")));
-//
-//                    }
-//                    list.setAdapter(arrayAdapter);
-//                } catch (JSONException e)
-//                {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            protected String doInBackground(Void... voids)
-//            {
-//                return DBHelper.urlInputStream(urlWebService);
-//            }
-//        }
-//        DownloadJSON getJSON = new DownloadJSON();
-//        getJSON.execute();
-//    }
+    public static void GetCustomerListData(final String urlWebService, final Context cont, final ListView list)
+    {
+        class DownloadJSON extends AsyncTask<Void, Void, String>
+        {
+            @Override
+            protected void onPreExecute()
+            {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s)
+            {
+                super.onPostExecute(s);
+                try
+                {
+                    JSONArray jsonArray = new JSONArray(s);
+
+                    ArrayAdapter<Customer> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
+                    for (int i = 0; i < jsonArray.length(); i++)
+                    {
+                        JSONObject obj = jsonArray.getJSONObject(i);
+
+                        arrayAdapter.add(new Customer(Integer.parseInt(obj.getString("CustomerId")),
+                                obj.getString("CustFirstName"),
+                                obj.getString("CustLastName"),
+                                obj.getString("CustAddress"),
+                                obj.getString("CustCity"),
+                                obj.getString("CustProv"),
+                                obj.getString("CustPostal"),
+                                obj.getString("CustCountry"),
+                                obj.getString("CustHomePhone"),
+                                obj.getString("CustBusPhone"),
+                                obj.getString("CustEmail"),
+                                obj.getString("AgentId")));
+
+                    }
+                    list.setAdapter(arrayAdapter);
+                } catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... voids)
+            {
+                return DBHelper.urlInputStream(urlWebService);
+            }
+        }
+        DownloadJSON getJSON = new DownloadJSON();
+        getJSON.execute();
+    }
     public static void UpdateCustomer(final String customerId, final String custFirstName, final String custLastName,
                                       final String custAddress, final String custCity, final String custProv,
                                       final String custPostal, final String custCountry, final String custHomePhone, final String custBusPhone,
