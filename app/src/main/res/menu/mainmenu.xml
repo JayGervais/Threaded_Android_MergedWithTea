@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_home"
+        android:title="Home"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_agents"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_agents"
+        android:title="Agents"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_bookings"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_booking"
+        android:title="Bookings"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_customers"
+        android:enabled="true"
+        android:icon="@drawable/customer"
+        android:visible="true"
+        android:title="Customers"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_products"
+        android:enabled="true"
+        android:icon="@drawable/product"
+        android:visible="true"
+        android:title="Products"
+        app:showAsAction="always|withText" />
+</menu>
