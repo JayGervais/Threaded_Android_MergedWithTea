@@ -3,13 +3,17 @@ package com.example.day10_assignment_v1.supplier;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.customer.Customer;
+import com.example.day10_assignment_v1.customer.CustomerDetailActivity;
+import com.example.day10_assignment_v1.customer.CustomerEditActivity;
 
 public class SupplierDetailActivity extends AppCompatActivity {
 TextView tvSupplierId,tvSupContactId,tvSupConCompany,tvSupConFirstName,tvSupConLastName,
@@ -89,6 +93,26 @@ Button btnUpdateSupplier;
         tvSupConURL.setText(supConURL);
         tvAffiliationId.setText(affiliationId);
 
-
+        btnUpdateSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SupplierDetailActivity.this, SupplierEditActivity.class);
+                //intent.putExtra("customerId",String.valueOf(customerId));
+                intent.putExtra("supConFirstName",supConFirstName);
+                intent.putExtra("supConLastName",supConLastName);
+                intent.putExtra("supConCompany",supConCompany);
+                intent.putExtra("supConAddress",supConAddress);
+                intent.putExtra("supConCity",supConCity);
+                intent.putExtra("supConProv",supConProv);
+                intent.putExtra("supConPostal",supConPostal);
+                intent.putExtra("supConCountry",supConCountry);
+                intent.putExtra("supConBusPhone",supConBusPhone);
+                intent.putExtra("supConFax",supConFax);
+                intent.putExtra("supConEmail",supConEmail);
+                intent.putExtra("supConURL",supConURL);
+                intent.putExtra("affiliationId",affiliationId);
+                SupplierDetailActivity.this.startActivity(intent);
+            }
+        });
     }
 }
