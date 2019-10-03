@@ -26,15 +26,15 @@
     <item
         android:id="@+id/menu_customers"
         android:enabled="true"
-        android:icon="@drawable/customer"
-        android:visible="true"
+        android:icon="@drawable/ic_action_customer"
         android:title="Customers"
+        android:visible="true"
         app:showAsAction="always|withText" />
     <item
         android:id="@+id/menu_products"
         android:enabled="true"
-        android:icon="@drawable/product"
-        android:visible="true"
+        android:icon="@drawable/ic_action_product"
         android:title="Products"
+        android:visible="true"
         app:showAsAction="always|withText" />
 </menu>
