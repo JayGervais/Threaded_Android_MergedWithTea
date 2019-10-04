@@ -19,12 +19,15 @@ import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.login.LoginActivity;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;
+import com.example.day10_assignment_v1.login.Session;
 import com.example.day10_assignment_v1.product.ProductListActivity;
 
 public class AgentListActivity extends AppCompatActivity
 {
     ListView listAgents;
     Button btnAddNewAgent;
+
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,6 +37,17 @@ public class AgentListActivity extends AppCompatActivity
 
         btnAddNewAgent = findViewById(R.id.btnAddNewAgent);
         listAgents = findViewById(R.id.listAgents);
+
+        // check session
+        session = new Session(this);
+        if (session.getsessionid() == null)
+        {
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+        else
+        {
+            session.getsessionid();
+        }
 
         listAgents.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -81,7 +95,6 @@ public class AgentListActivity extends AppCompatActivity
             case R.id.menu_bookings:
                 startActivity(new Intent(this, BookingListActivity.class));
                 return true;
-
             case R.id.menu_customers:
                 startActivity(new Intent(this, CustomerListActivity.class));
                 return true;
@@ -89,6 +102,7 @@ public class AgentListActivity extends AppCompatActivity
                 startActivity(new Intent(this, ProductListActivity.class));
                 return true;
             case R.id.menu_logout:
+                session.setsessionid(null);
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
         }

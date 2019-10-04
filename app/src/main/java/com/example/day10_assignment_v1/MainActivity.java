@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.example.day10_assignment_v1.product.ProductListActivity;
 public class MainActivity extends AppCompatActivity
 {
     private Session session;
+    TextView tvSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,20 +29,18 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // session set and check
+        tvSession = findViewById(R.id.tvSession);
         session = new Session(this);
-
-        Intent intent = getIntent();
-        if (intent.hasExtra("sessionid"))
-        {
-            String sessionid = intent.getStringExtra("sessionid");
-            session.setsessionid(sessionid);
-        }
-
         if (session.getsessionid() == null)
         {
             startActivity(new Intent(this, LoginActivity.class));
         }
-
+        else
+        {
+            tvSession.setText(session.getsessionid());
+            session.getsessionid();
+        }
     }
 
     @Override
