@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".supplier.SupplierEditActivity"></activity>
+        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".supplier.SupplierEditActivity" />
         <activity android:name=".supplier.SupplierNewActivity" />
         <activity android:name=".supplier.SupplierDetailActivity" />
         <activity android:name=".product.ProductEditActivity" />

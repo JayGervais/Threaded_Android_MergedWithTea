@@ -13,6 +13,7 @@ public class Agent implements Parcelable
     private String AgtEmail;
     private String AgtPosition;
     private Integer AgencyId;
+    private String Password;
 
     public Agent(Integer agentId,
                  String agtFirstName,
@@ -21,7 +22,8 @@ public class Agent implements Parcelable
                  String agtBusPhone,
                  String agtEmail,
                  String agtPosition,
-                 Integer agencyId)
+                 Integer agencyId,
+                 String password)
     {
         AgentId = agentId;
         AgtFirstName = agtFirstName;
@@ -31,6 +33,7 @@ public class Agent implements Parcelable
         AgtEmail = agtEmail;
         AgtPosition = agtPosition;
         AgencyId = agencyId;
+        Password = password;
     }
 
     public Agent(Integer agentId, String agtFirstName, String agtLastName, String agtPosition)
@@ -105,6 +108,11 @@ public class Agent implements Parcelable
     public void setAgencyId(Integer agencyId)
     {
         AgencyId = agencyId;
+    }
+
+    public void setPassword(String password)
+    {
+        Password = password;
     }
 
     @Override

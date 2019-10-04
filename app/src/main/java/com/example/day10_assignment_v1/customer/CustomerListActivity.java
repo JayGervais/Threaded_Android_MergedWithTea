@@ -17,6 +17,7 @@ import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.MainActivity;
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.agent.AgentListActivity;
+import com.example.day10_assignment_v1.login.LoginActivity;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
 import com.example.day10_assignment_v1.product.ProductListActivity;
 
@@ -86,6 +87,9 @@ public class CustomerListActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_products:
                 startActivity(new Intent(this, ProductListActivity.class));
+                return true;
+            case R.id.menu_logout:
+                startActivity(new Intent(this, LoginActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

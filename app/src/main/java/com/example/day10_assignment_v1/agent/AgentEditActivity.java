@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 public class AgentEditActivity  extends AppCompatActivity
 {
     EditText etAgentId, etAgtFirstName, etAgtMiddleInitial, etAgtLastName,
-            etAgtBusPhone, etAgtEmail, etAgtPosition, etAgency;
+            etAgtBusPhone, etAgtEmail, etAgtPosition, etAgency, etPassword;
     Spinner spinAgencies;
     Button btnSave, btnDelete, btnCancel;
 
@@ -62,13 +62,14 @@ public class AgentEditActivity  extends AppCompatActivity
         etAgtPosition = findViewById(R.id.etAgtPosition);
         spinAgencies = findViewById(R.id.spinAgencies);
         etAgency = findViewById(R.id.etAgency);
+        etPassword = findViewById(R.id.etPassword);
 
         // buttons
         btnSave = findViewById(R.id.btnSave);
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String agentId = intent.getStringExtra("agentId");
         String agtFirstName = intent.getStringExtra("agtFirstName");
         String agtMiddleInitial = intent.getStringExtra("agtMiddleInitial");
@@ -91,7 +92,8 @@ public class AgentEditActivity  extends AppCompatActivity
         etAgtPosition.setText(agtPos);
 
         // set spinner data
-        spinAgencies.setVisibility(View.INVISIBLE);
+        spinAgencies.setVisibility(View.VISIBLE);
+        etAgency.setVisibility(View.INVISIBLE);
 
         // set text for agency
         Uri.Builder builder = new Uri.Builder();
@@ -135,11 +137,13 @@ public class AgentEditActivity  extends AppCompatActivity
                         etAgtEmail.getText().toString(),
                         etAgtPosition.getText().toString(),
                         String.valueOf(agentSelect.getAgencyId()),
+                        etPassword.getText().toString(),
                         "api_updateAgent_activitySecret",
                         DBHelper.apiURL() + "/api/agent_update.php",
                         AgentEditActivity.this);
                 Toast.makeText(AgentEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
                 Intent savedIntent = new Intent(AgentEditActivity.this, AgentDetailActivity.class);
+                intent.putExtra("agentId", etAgentId.getText());
                 AgentEditActivity.this.startActivity(savedIntent);
             }
         });

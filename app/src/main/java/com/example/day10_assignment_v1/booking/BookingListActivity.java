@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,11 +19,15 @@ import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.MainActivity;
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.agent.AgentListActivity;
+import com.example.day10_assignment_v1.login.LoginActivity;
+import com.example.day10_assignment_v1.login.Session;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;
 import com.example.day10_assignment_v1.product.ProductListActivity;
 
 public class BookingListActivity extends AppCompatActivity
 {
+    Session session;
+
     ListView listBookings;
     TextView txtBookingDate, txtBookingDescription, txtBasePrice, txtCommission, tvBookingTotal,
             tvCommissionTotal;
@@ -125,12 +127,14 @@ public class BookingListActivity extends AppCompatActivity
             case R.id.menu_bookings:
                 startActivity(new Intent(this, BookingListActivity.class));
                 return true;
-
             case R.id.menu_customers:
                 startActivity(new Intent(this, CustomerListActivity.class));
                 return true;
             case R.id.menu_products:
                 startActivity(new Intent(this, ProductListActivity.class));
+                return true;
+            case R.id.menu_logout:
+                startActivity(new Intent(this, LoginActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

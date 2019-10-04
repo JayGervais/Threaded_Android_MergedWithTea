@@ -20,7 +20,8 @@ import com.example.day10_assignment_v1.agency.AgencyDB;
 
 public class AddAgentActivity extends AppCompatActivity
 {
-    EditText etAgtFirstName, etAgtMiddleInitial, etAgtLastName, etAgtBusPhone, etAgtEmail, etAgtPosition;
+    EditText etAgtFirstName, etAgtMiddleInitial, etAgtLastName, etAgtBusPhone, etAgtEmail,
+            etAgtPosition, etPassword;
     Button btnSave, btnCancel;
     Spinner spinnerAgencies;
 
@@ -51,6 +52,7 @@ public class AddAgentActivity extends AppCompatActivity
         etAgtBusPhone = findViewById(R.id.etAgtBusPhone);
         etAgtEmail = findViewById(R.id.etAgtEmail);
         etAgtPosition = findViewById(R.id.etAgtPosition);
+        etPassword = findViewById(R.id.etPassword);
 
         spinnerAgencies = findViewById(R.id.spinnerAgencies);
 
@@ -90,7 +92,7 @@ public class AddAgentActivity extends AppCompatActivity
                         etAgtEmail.getText().toString(),
                         etAgtPosition.getText().toString(),
                         String.valueOf(agency.getAgencyId()),
-                        // etAgencyId.getText().toString(),
+                        etPassword.getText().toString(),
                         "sait_oosd_2019_updateSecret",
                         DBHelper.apiURL() + "/api/agent_add.php",
                         AddAgentActivity.this);

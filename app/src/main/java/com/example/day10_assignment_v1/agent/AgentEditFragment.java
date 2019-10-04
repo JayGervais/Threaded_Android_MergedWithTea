@@ -20,7 +20,7 @@ import com.example.day10_assignment_v1.R;
  */
 public class AgentEditFragment extends Fragment
 {
-    EditText etAgentId, etAgtFirstName, etAgtMiddleInitial, etAgtLastName, etAgtBusPhone, etAgtEmail, etAgtPosition;
+    EditText etAgentId, etAgtFirstName, etAgtMiddleInitial, etAgtLastName, etAgtBusPhone, etAgtEmail, etAgtPosition, etPassword;
     Spinner spinAgencies;
 
     public AgentEditFragment()
@@ -48,6 +48,7 @@ public class AgentEditFragment extends Fragment
         etAgtEmail = getActivity().findViewById(R.id.etAgtEmail);
         etAgtPosition = getActivity().findViewById(R.id.etAgtPosition);
         spinAgencies = getActivity().findViewById(R.id.spinAgencies);
+        etPassword = getActivity().findViewById(R.id.etPassword);
     }
 
 

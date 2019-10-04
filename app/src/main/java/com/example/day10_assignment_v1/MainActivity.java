@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.day10_assignment_v1.agent.AgentListActivity;
+import com.example.day10_assignment_v1.login.LoginActivity;
+import com.example.day10_assignment_v1.login.Session;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;
 import com.example.day10_assignment_v1.product.ProductListActivity;
@@ -17,11 +19,28 @@ import com.example.day10_assignment_v1.product.ProductListActivity;
 
 public class MainActivity extends AppCompatActivity
 {
+    private Session session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        session = new Session(this);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("sessionid"))
+        {
+            String sessionid = intent.getStringExtra("sessionid");
+            session.setsessionid(sessionid);
+        }
+
+        if (session.getsessionid() == null)
+        {
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
     }
 
     @Override
@@ -52,7 +71,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.menu_products:
                 startActivity(new Intent(this, ProductListActivity.class));
                 return true;
-
+            case R.id.menu_logout:
+                session.setsessionid(null);
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

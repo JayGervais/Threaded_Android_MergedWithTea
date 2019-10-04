@@ -29,7 +29,7 @@ public class AgentDB
     // update agent function used for both creating and updating agents (using volley)
     public static void UpdateAgent(final String agentId, final String agtFirstName, final String agtMiddleInitial,
                                    final String agtLastName, final String agtBusPhone, final String agtEmail,
-                                   final String agtPosition, final String agencyId, final String apiSecret,
+                                   final String agtPosition, final String agencyId, final String password, final String apiSecret,
                                    final String url, final Context context)
     {
         final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
@@ -67,6 +67,7 @@ public class AgentDB
                 parameters.put("agtPosition", agtPosition);
                 parameters.put("agencyId", agencyId);
                 parameters.put("apiSecret", apiSecret);
+                parameters.put("password", password);
                 return parameters;
             }
         };
@@ -141,7 +142,8 @@ public class AgentDB
                                 obj.getString("AgtBusPhone"),
                                 obj.getString("AgtEmail"),
                                 obj.getString("AgtPosition"),
-                                Integer.parseInt(obj.getString("AgencyId"))));
+                                Integer.parseInt(obj.getString("AgencyId")),
+                                null));
                     }
                     list.setAdapter(arrayAdapter);
                 } catch (JSONException e)
@@ -294,7 +296,8 @@ public class AgentDB
                                 obj.getString("AgtBusPhone"),
                                 obj.getString("AgtEmail"),
                                 obj.getString("AgtPosition"),
-                                Integer.parseInt(obj.getString("AgencyId"))));
+                                Integer.parseInt(obj.getString("AgencyId")),
+                                null));
 
                         aFName[i] = obj.getString("AgtFirstName");
                         if (aMName[i] != null)
