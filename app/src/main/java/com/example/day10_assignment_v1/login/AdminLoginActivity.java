@@ -60,6 +60,9 @@ public class AdminLoginActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "Login Successful",
                             Toast.LENGTH_LONG).show();
                     startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Username or password does not match",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
