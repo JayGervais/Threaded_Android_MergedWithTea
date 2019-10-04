@@ -23,4 +23,28 @@ public class Session
         String sessionid = prefs.getString("sessionid",null);
         return sessionid;
     }
+
+    public void setsessionname(String sessionname)
+    {
+        prefs.edit().putString("sessionname", sessionname).commit();
+    }
+
+    public String getsessionname()
+    {
+        String sessionname = prefs.getString("sessionname",null);
+        return sessionname;
+    }
+
+    public void setsessionrole(String sessionrole)
+    {
+        prefs.edit().putString("sessionrole", sessionrole).commit();
+    }
+
+    public String getsessionrole()
+    {
+        String sessionrole = prefs.getString("sessionrole",null);
+        return sessionrole;
+    }
+
+
 }

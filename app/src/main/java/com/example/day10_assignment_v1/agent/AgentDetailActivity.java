@@ -18,6 +18,8 @@ import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.booking.Booking;
 import com.example.day10_assignment_v1.booking.BookingDB;
 import com.example.day10_assignment_v1.booking.BookingDetailActivity;
+import com.example.day10_assignment_v1.login.LoginActivity;
+import com.example.day10_assignment_v1.login.Session;
 
 public class AgentDetailActivity extends AppCompatActivity
 {
@@ -25,10 +27,10 @@ public class AgentDetailActivity extends AppCompatActivity
             tvAgtBusPhone, tvAgtEmail, tvAgtPosition, tvAgency;
 
     TextView tvTotalSales, tvTotalCommission;
-
     Button buttonEdit;
-
     ListView listAgentSales;
+
+    Session session;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -66,6 +68,23 @@ public class AgentDetailActivity extends AppCompatActivity
 
         // buttons
         buttonEdit = findViewById(R.id.buttonEdit);
+
+        // check session
+        session = new Session(this);
+        if (session.getsessionid() == null)
+        {
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+        else
+        {
+            session.getsessionid();
+            if (session.getsessionrole().equals("admin"))
+            {
+                buttonEdit.setVisibility(View.VISIBLE);
+            } else {
+                buttonEdit.setVisibility(View.INVISIBLE);
+            }
+        }
 
         final Agent agentObj = getIntent().getParcelableExtra("agent");
 

@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            tvSession.setText(session.getsessionid());
+            tvSession.setText("Welcome, " + session.getsessionname());
             session.getsessionid();
+            session.getsessionrole();
         }
     }
 

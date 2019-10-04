@@ -47,6 +47,12 @@ public class AgentListActivity extends AppCompatActivity
         else
         {
             session.getsessionid();
+            if (session.getsessionrole().equals("admin"))
+            {
+                btnAddNewAgent.setVisibility(View.VISIBLE);
+            } else {
+                btnAddNewAgent.setVisibility(View.INVISIBLE);
+            }
         }
 
         listAgents.setOnItemClickListener(new AdapterView.OnItemClickListener()

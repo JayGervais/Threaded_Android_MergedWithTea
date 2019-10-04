@@ -17,7 +17,7 @@ import com.example.day10_assignment_v1.R;
 public class LoginActivity extends AppCompatActivity
 {
     EditText etEmail, etPassword;
-    Button btnLogIn;
+    Button btnLogIn, btnAdmin;
 
     Session session;
 
@@ -30,13 +30,14 @@ public class LoginActivity extends AppCompatActivity
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogIn = findViewById(R.id.btnLogIn);
+        btnAdmin = findViewById(R.id.btnAdmin);
 
         btnLogIn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                if (etEmail.getText() != null && etPassword !=null)
+                if (etEmail.getText() != null && etPassword != null)
                 {
                     // string builder to get user session
                     Uri.Builder loginURL = new Uri.Builder();
@@ -55,11 +56,24 @@ public class LoginActivity extends AppCompatActivity
                     {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("sessionid", session.getsessionid());
-                        Toast.makeText(getApplicationContext(), "Login successful",
+                        Toast.makeText(getApplicationContext(), "Login Successful",
                                 Toast.LENGTH_LONG).show();
                         startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Username or password does not match",
+                                Toast.LENGTH_LONG).show();
                     }
                 }
+            }
+        });
+
+        btnAdmin.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getApplicationContext(), AdminLoginActivity.class);
+                startActivity(intent);
             }
         });
     }
