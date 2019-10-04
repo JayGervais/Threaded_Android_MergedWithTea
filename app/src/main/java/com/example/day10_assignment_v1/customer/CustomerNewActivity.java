@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,8 +28,10 @@ public class CustomerNewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_new);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        etCustomerId = findViewById(R.id.etCustomerIdN);
+
+        //etCustomerId = findViewById(R.id.etCustomerIdN);
         etCustFirstName=findViewById(R.id.etCustFirstNameN);
         etCustLastName = findViewById(R.id.etCustLastNameN);
         etCustAddress=findViewById(R.id.etCustAddressN);
@@ -64,7 +68,7 @@ public class CustomerNewActivity extends AppCompatActivity {
                         etCustBusPhone.getText().toString(),
                         etCustEmail.getText().toString(),
                         etAgentId.getText().toString(),
-                        "sait_oosd_2019_updateSecret",
+                        "sait_oosd_2019_add_custSecret",
                         DBHelper.apiURL() + "/api/customer_add.php",
                         CustomerNewActivity.this);
                 Toast.makeText(CustomerNewActivity.this, "New Customer Added", Toast.LENGTH_LONG).show();
@@ -82,6 +86,16 @@ public class CustomerNewActivity extends AppCompatActivity {
                 CustomerNewActivity.this.startActivity(savedIntent);
             }
         });
+
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
 
     }
 

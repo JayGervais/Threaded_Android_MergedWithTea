@@ -21,6 +21,8 @@ Button btnSaveNewProd, btnCancel;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_new);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etNewProdName=findViewById(R.id.etNewProdName);
         btnSaveNewProd=findViewById(R.id.btnSaveNewProd);
 

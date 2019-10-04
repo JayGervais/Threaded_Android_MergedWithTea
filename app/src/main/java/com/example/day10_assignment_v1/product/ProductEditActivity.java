@@ -22,6 +22,8 @@ public class ProductEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etProdName=findViewById(R.id.etProdName);
         etProductId=findViewById(R.id.etProductId);
 

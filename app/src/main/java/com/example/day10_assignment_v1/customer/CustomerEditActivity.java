@@ -55,7 +55,7 @@ public class CustomerEditActivity extends AppCompatActivity {
         etCustHomePhone = findViewById(R.id.etCustHomePhone);
         etCustBusPhone=findViewById(R.id.etCustHomePhone);
         etCustEmail = findViewById(R.id.etCustEmail);
-        //etAgentId=findViewById(R.id.etAgentId);
+        etAgentId=findViewById(R.id.etAgentId);
 
         btnSaveCustomer=findViewById(R.id.btnSaveCustomer);
         btnCancel=findViewById(R.id.btnCancel);
@@ -73,7 +73,7 @@ public class CustomerEditActivity extends AppCompatActivity {
         String custHomePhone = intent.getStringExtra("custHomePhone");
         String cutBusPhone = intent.getStringExtra("custBusPhone");
         String custEmail = intent.getStringExtra("custEmail");
-        //String agentId = intent.getStringExtra("agentId");
+        String agentId = intent.getStringExtra("agentId");
 
 
         etCustomerId.setText(String.valueOf(customerId));
@@ -87,7 +87,7 @@ public class CustomerEditActivity extends AppCompatActivity {
         etCustHomePhone.setText(custHomePhone);
         etCustBusPhone.setText(cutBusPhone);
         etCustEmail.setText(custEmail);
-        //etAgentId.setText(agentId);
+        etAgentId.setText(agentId);
 
 
 
@@ -95,7 +95,8 @@ public class CustomerEditActivity extends AppCompatActivity {
         btnSaveCustomer.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-             CustomerDB.UpdateCustomer(etCustomerId.getText().toString(),
+             CustomerDB.UpdateCustomer(
+                     etCustomerId.getText().toString(),
                 etCustFirstName.getText().toString(),
                 etCustLastName.getText().toString(),
                 etCustAddress.getText().toString(),
@@ -108,7 +109,7 @@ public class CustomerEditActivity extends AppCompatActivity {
                 etCustEmail.getText().toString(),
                 etAgentId.getText().toString()
                 ,
-                "api_updateCustomer_activitySecret",
+                "sait_oosd_2019_update_custSecret",
                 DBHelper.apiURL() + "/api/customer_update.php",
                 CustomerEditActivity.this);
                 Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();

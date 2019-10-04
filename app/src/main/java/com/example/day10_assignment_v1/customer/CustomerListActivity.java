@@ -2,6 +2,7 @@ package com.example.day10_assignment_v1.customer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -68,6 +69,7 @@ public class CustomerListActivity extends AppCompatActivity {
 
 
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -91,6 +93,7 @@ public class CustomerListActivity extends AppCompatActivity {
             case R.id.menu_logout:
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

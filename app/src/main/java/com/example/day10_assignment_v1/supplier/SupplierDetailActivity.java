@@ -38,6 +38,7 @@ Button btnUpdateSupplier;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_detail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tvSupplierId=findViewById(R.id.tvSupplierId);
         tvSupContactId=findViewById(R.id.tvSupContactId);

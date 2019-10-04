@@ -180,8 +180,7 @@ public class Customer implements Parcelable
 
     @Override
     public String toString() {
-        return "ID: " + CustomerId +
-                "     " + CustFirstName + " " + CustLastName;
+        return CustFirstName + " " + CustLastName + "  " + "  ID: "+CustomerId;
     }
 
     public Customer(Parcel in){

@@ -29,6 +29,7 @@ public class SupplierEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         etSupCompany = findViewById(R.id.etSupCompany);
         etSupFirstName = findViewById(R.id.etSupFirstName);
@@ -64,7 +65,7 @@ public class SupplierEditActivity extends AppCompatActivity {
         String supConFax = intent.getStringExtra("supConFax");
         String supConEmail = intent.getStringExtra("supConEmail");
         String supConURL = intent.getStringExtra("supConURL");
-        String affiliationId = intent.getStringExtra("affiliationid");
+        String affiliationId = intent.getStringExtra("affiliationId");
 
         etSupFirstName.setText(supConFirstName);
         etSupLastName.setText(supConLastName);
