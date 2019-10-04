@@ -56,6 +56,7 @@ public class AdminLoginActivity extends AppCompatActivity
                 {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.putExtra("sessionid", session.getsessionid());
+                    // intent.putExtra("sessionrole", session.getsessionrole());
                     Toast.makeText(getApplicationContext(), "Login Successful",
                             Toast.LENGTH_LONG).show();
                     startActivity(intent);

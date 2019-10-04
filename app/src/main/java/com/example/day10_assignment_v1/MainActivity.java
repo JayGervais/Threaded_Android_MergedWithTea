@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         {
             tvSession.setText("Welcome, " + session.getsessionname());
             session.getsessionid();
+            session.getsessionrole();
         }
     }
 

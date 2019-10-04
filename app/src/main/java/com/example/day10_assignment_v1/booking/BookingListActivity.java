@@ -30,7 +30,7 @@ public class BookingListActivity extends AppCompatActivity
 
     ListView listBookings;
     TextView txtBookingDate, txtBookingDescription, txtBasePrice, txtCommission, tvBookingTotal,
-            tvCommissionTotal, tvSessionId;
+            tvCommissionTotal;
 
     // date selector text fields
     TextView startDate, endDate;
@@ -56,7 +56,6 @@ public class BookingListActivity extends AppCompatActivity
         listBookings = findViewById(R.id.listBookings);
 
         // check session id
-        tvSessionId = findViewById(R.id.tvSessionId);
         session = new Session(this);
         if (session.getsessionid() == null)
         {
@@ -64,7 +63,6 @@ public class BookingListActivity extends AppCompatActivity
         }
         else
         {
-            tvSessionId.setText(session.getsessionid());
             session.getsessionid();
         }
 
