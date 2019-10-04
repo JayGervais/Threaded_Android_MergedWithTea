@@ -33,6 +33,7 @@ public class LoginDB
 
                     ArrayAdapter<Agent> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
                     String[] agentId = new String[jsonArray.length()];
+                    String[] agentName = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++)
                     {
                         JSONObject obj = jsonArray.getJSONObject(i);
@@ -47,8 +48,11 @@ public class LoginDB
                                 Integer.parseInt(obj.getString("AgencyId")),
                                 null));
                         agentId[i] = obj.getString("AgentId");
+                        agentName[i] = obj.getString("AgtFirstName") + " " + obj.getString("AgtLastName");
                     }
                     session.setsessionid(String.valueOf(agentId[0]));
+                    session.setsessionname(agentName[0]);
+                    session.setsessionrole("agent");
 
                 } catch (JSONException e)
                 {
