@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".login.AdminLoginActivity"></activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".supplier.SupplierEditActivity" />
         <activity android:name=".supplier.SupplierNewActivity" />
