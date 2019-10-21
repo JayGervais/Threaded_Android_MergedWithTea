@@ -195,7 +195,7 @@ public class CustomerDB
         requestQueue.add(request);
     }
 
-    // delete agent function (using volley)
+
     public static void DeleteCustomer(final String customerId, final String apiSecret,
                                       final String url, final Context context)
     {

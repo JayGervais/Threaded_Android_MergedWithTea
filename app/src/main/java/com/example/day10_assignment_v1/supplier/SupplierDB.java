@@ -1,12 +1,20 @@
 package com.example.day10_assignment_v1.supplier;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SyncRequest;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.customer.Customer;
 import com.example.day10_assignment_v1.product.Product;
@@ -14,6 +22,9 @@ import com.example.day10_assignment_v1.product.Product;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SupplierDB {
 
@@ -119,4 +130,92 @@ public class SupplierDB {
         DownloadJSON getJSON = new DownloadJSON();
         getJSON.execute();
     }
+    public static void UpdateSupplier(final String supplierContactId, final String supConFirstName, final String supConLastName,
+                                      final String supConCompany, final String supConAddress, final String supConCity, final String supConProv,
+                                      final String supConPostal, final String supConCountry, final String supConBusPhone, final String supConFax,
+                                      final String supConEmail, final String supConURL, final String affiliationId,final String apiSecret,
+                                      final String url, final Context context)
+    {
+        final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
+        {
+            @Override
+            public void onResponse(String ServerResponse)
+            {
+                ProgressDialog progressDialog = new ProgressDialog(context);
+                progressDialog.dismiss();
+            }
+        },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError)
+                    {
+                        ProgressDialog progressDialog = new ProgressDialog(context);
+                        progressDialog.dismiss();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> parameters = new HashMap<>();
+                if (supplierContactId != null)
+                {
+                    parameters.put("supplierContactId", supplierContactId);
+                }
+                parameters.put("supConFirstName", supConFirstName);
+                parameters.put("supConLastName", supConLastName);
+                parameters.put("supConCompany", supConCompany);
+                parameters.put("supConAddress", supConAddress);
+                parameters.put("supConCity", supConCity);
+                parameters.put("supConProv", supConProv);
+                parameters.put("supConPostal", supConPostal);
+                parameters.put("supConCountry", supConCountry);
+                parameters.put("supConBusPhone", supConBusPhone);
+                parameters.put("supConFax", supConFax);
+                parameters.put("supConEmail", supConEmail);
+                parameters.put("supConURL", supConURL);
+                parameters.put("affiliationId", affiliationId);
+                parameters.put("apiSecret", apiSecret);
+                return parameters;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(request);
+    }
+    public static void DeleteSupplier(final String supplierContactId, final String apiSecret,
+                                      final String url, final Context context)
+    {
+        final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
+        {
+            @Override
+            public void onResponse(String ServerResponse)
+            {
+                ProgressDialog progressDialog = new ProgressDialog(context);
+                progressDialog.dismiss();
+            }
+        },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError)
+                    {
+                        ProgressDialog progressDialog = new ProgressDialog(context);
+                        progressDialog.dismiss();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> parameters = new HashMap<>();
+                parameters.put("supplierContactId", supplierContactId);
+                parameters.put("apiSecret", apiSecret);
+                return parameters;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(request);
+    }
+
 }

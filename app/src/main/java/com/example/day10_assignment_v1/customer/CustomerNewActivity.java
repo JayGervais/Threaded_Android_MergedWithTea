@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.Validation.Validation;
 import com.example.day10_assignment_v1.agency.Agency;
 import com.example.day10_assignment_v1.agency.AgencyDB;
 import com.example.day10_assignment_v1.agent.AddAgentActivity;
@@ -53,29 +54,74 @@ public class CustomerNewActivity extends AppCompatActivity {
         btnSaveNewCustomer.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
-                CustomerDB.UpdateCustomer(null,
-                        etCustFirstName.getText().toString(),
-                        etCustLastName.getText().toString(),
-                        etCustAddress.getText().toString(),
-                        etCustCity.getText().toString(),
-                        etCustProv.getText().toString(),
-                        etCustPostal.getText().toString(),
-                        etCustCountry.getText().toString(),
-                        etCustHomePhone.getText().toString(),
-                        etCustBusPhone.getText().toString(),
-                        etCustEmail.getText().toString(),
-                        etAgentId.getText().toString(),
-                        "sait_oosd_2019_add_custSecret",
-                        DBHelper.apiURL() + "/api/customer_add.php",
-                        CustomerNewActivity.this);
-                Toast.makeText(CustomerNewActivity.this, "New Customer Added", Toast.LENGTH_LONG).show();
-                Intent savedIntent = new Intent(CustomerNewActivity.this, CustomerListActivity.class);
-                CustomerNewActivity.this.startActivity(savedIntent);
-            }
-        });
+                //Validation with error messages
+                String alpha = etCustFirstName.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etCustFirstName.setError(getString(R.string.Alpha));
+                }
+                alpha = etCustLastName.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etCustLastName.setError(getString(R.string.Alpha));
+                }
+                String address = etCustAddress.getText().toString();
+                if (!Validation.isValidAddress(address)) {
+                    etCustAddress.setError(getString(R.string.Address));
+                }
+                alpha = etCustCity.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etCustCity.setError(getString(R.string.Alpha));
+                }
+                alpha = etCustProv.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etCustProv.setError(getString(R.string.Alpha));
+                }
+                String postal = etCustPostal.getText().toString();
+                if (!Validation.isValidPostal(postal)) {
+                    etCustPostal.setError(getString(R.string.Postal));
+                }
+                alpha = etCustCountry.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etCustCountry.setError(getString(R.string.Alpha));
+                }
+                String phone = etCustHomePhone.getText().toString();
+                if (!Validation.isValidPhoneNum(phone)) {
+                    etCustHomePhone.setError(getString(R.string.Phone));
+                }
+                phone = etCustBusPhone.getText().toString();
+                if (!Validation.isValidPhoneNum(phone)) {
+                    etCustBusPhone.setError(getString(R.string.Phone));
+                }
+                String email = etCustEmail.getText().toString();
+//        if(!email.equals("null")){
+
+                if (!Validation.isValidEmail(email)) {
+                    etCustEmail.setError(getString(R.string.Email));
+                }
+                //}
+                else {
+
+                    CustomerDB.UpdateCustomer(null,
+                            etCustFirstName.getText().toString(),
+                            etCustLastName.getText().toString(),
+                            etCustAddress.getText().toString(),
+                            etCustCity.getText().toString(),
+                            etCustProv.getText().toString(),
+                            etCustPostal.getText().toString(),
+                            etCustCountry.getText().toString(),
+                            etCustHomePhone.getText().toString(),
+                            etCustBusPhone.getText().toString(),
+                            etCustEmail.getText().toString(),
+                            etAgentId.getText().toString(),
+                            "sait_oosd_2019_add_custSecret",
+                            DBHelper.apiURL() + "/api/customer_add.php",
+                            CustomerNewActivity.this);
+                    Toast.makeText(CustomerNewActivity.this, "New Customer Added", Toast.LENGTH_LONG).show();
+                    Intent savedIntent = new Intent(CustomerNewActivity.this, CustomerListActivity.class);
+                    CustomerNewActivity.this.startActivity(savedIntent);
+                }
+            } });
 
         btnCancel.setOnClickListener(new View.OnClickListener()
         {

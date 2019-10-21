@@ -12,12 +12,32 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="275dp"
         tools:layout_editor_absoluteY="282dp">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView74"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/textView181"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Supplier ID :" />
+
+                <EditText
+                    android:id="@+id/etSupplierContactId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView81"
@@ -222,6 +242,7 @@
             android:layout_height="wrap_content"
             android:text="@android:string/cancel"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

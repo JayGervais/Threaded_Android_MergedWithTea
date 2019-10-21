@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.Validation.Validation;
 import com.example.day10_assignment_v1.agent.AgentDB;
 import com.example.day10_assignment_v1.agent.AgentDetailActivity;
 import com.example.day10_assignment_v1.agent.AgentEditActivity;
@@ -42,7 +43,8 @@ public class CustomerEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_edit);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         etCustomerId = findViewById(R.id.etCustomerId);
         etCustFirstName=findViewById(R.id.etCustFirstName);
@@ -53,15 +55,15 @@ public class CustomerEditActivity extends AppCompatActivity {
         etCustPostal = findViewById(R.id.etCustPostal);
         etCustCountry=findViewById(R.id.etCustCountry);
         etCustHomePhone = findViewById(R.id.etCustHomePhone);
-        etCustBusPhone=findViewById(R.id.etCustHomePhone);
+        etCustBusPhone=findViewById(R.id.etCustBusPhone);
         etCustEmail = findViewById(R.id.etCustEmail);
-        etAgentId=findViewById(R.id.etAgentId);
+        etAgentId=findViewById(R.id.etAgentIdCust);
 
         btnSaveCustomer=findViewById(R.id.btnSaveCustomer);
         btnCancel=findViewById(R.id.btnCancel);
         btnDeleteCustomer=findViewById(R.id.btnDeleteCustomer);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String customerId = intent.getStringExtra("customerId");
         String custFirstName = intent.getStringExtra("custFirstName");
         String custLastName = intent.getStringExtra("custLastName");
@@ -71,7 +73,7 @@ public class CustomerEditActivity extends AppCompatActivity {
         String custPostal = intent.getStringExtra("custPostal");
         String custCountry = intent.getStringExtra("custCountry");
         String custHomePhone = intent.getStringExtra("custHomePhone");
-        String cutBusPhone = intent.getStringExtra("custBusPhone");
+        String custBusPhone = intent.getStringExtra("custBusPhone");
         String custEmail = intent.getStringExtra("custEmail");
         String agentId = intent.getStringExtra("agentId");
 
@@ -85,9 +87,9 @@ public class CustomerEditActivity extends AppCompatActivity {
         etCustPostal.setText(custPostal);
         etCustCountry.setText(custCountry);
         etCustHomePhone.setText(custHomePhone);
-        etCustBusPhone.setText(cutBusPhone);
+        etCustBusPhone.setText(custBusPhone);
         etCustEmail.setText(custEmail);
-        etAgentId.setText(agentId);
+        etAgentId.setText(String.valueOf(agentId));
 
 
 
@@ -95,28 +97,77 @@ public class CustomerEditActivity extends AppCompatActivity {
         btnSaveCustomer.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-             CustomerDB.UpdateCustomer(
-                     etCustomerId.getText().toString(),
-                etCustFirstName.getText().toString(),
-                etCustLastName.getText().toString(),
-                etCustAddress.getText().toString(),
-                etCustCity.getText().toString(),
-                etCustProv.getText().toString(),
-                etCustPostal.getText().toString(),
-                etCustCountry.getText().toString(),
-                etCustHomePhone.getText().toString(),
-                etCustBusPhone.getText().toString(),
-                etCustEmail.getText().toString(),
-                etAgentId.getText().toString()
-                ,
-                "sait_oosd_2019_update_custSecret",
-                DBHelper.apiURL() + "/api/customer_update.php",
-                CustomerEditActivity.this);
-                Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
-                Intent savedIntent = new Intent(CustomerEditActivity.this, CustomerDetailActivity.class);
-                CustomerEditActivity.this.startActivity(savedIntent);
-    }
-                });
+//Validation with error messages
+        String alpha = etCustFirstName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etCustFirstName.setError(getString(R.string.Alpha));
+        }
+        alpha = etCustLastName.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustLastName.setError(getString(R.string.Alpha));
+        }
+        String address = etCustAddress.getText().toString();
+        if(!Validation.isValidAddress(address)){
+            etCustAddress.setError(getString(R.string.Address));
+        }
+        alpha= etCustCity.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustCity.setError(getString(R.string.Alpha));
+        }
+        alpha = etCustProv.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustProv.setError(getString(R.string.Alpha));
+        }
+        String postal = etCustPostal.getText().toString();
+        if(!Validation.isValidPostal(postal)){
+            etCustPostal.setError(getString(R.string.Postal));
+        }
+        alpha = etCustCountry.getText().toString();
+        if(!Validation.isValidAlpha(alpha)) {
+            etCustCountry.setError(getString(R.string.Alpha));
+        }
+        String phone = etCustHomePhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustHomePhone.setError(getString(R.string.Phone));
+        }
+        phone = etCustBusPhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustBusPhone.setError(getString(R.string.Phone));
+        }
+        String email = etCustEmail.getText().toString();
+//        if(!email.equals("null")){
+
+        if(!Validation.isValidEmail(email)){
+            etCustEmail.setError(getString(R.string.Email));
+        }
+    //}
+        else {
+
+
+            CustomerDB.UpdateCustomer(
+                    etCustomerId.getText().toString(),
+                    etCustFirstName.getText().toString(),
+                    etCustLastName.getText().toString(),
+                    etCustAddress.getText().toString(),
+                    etCustCity.getText().toString(),
+                    etCustProv.getText().toString(),
+                    etCustPostal.getText().toString(),
+                    etCustCountry.getText().toString(),
+                    etCustHomePhone.getText().toString(),
+                    etCustBusPhone.getText().toString(),
+                    etCustEmail.getText().toString(),
+                    etAgentId.getText().toString()
+                    ,
+                    "sait_oosd_2019_update_custSecret",
+                    DBHelper.apiURL() + "/api/customer_update.php",
+                    CustomerEditActivity.this);
+
+            Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
+            Intent savedIntent = new Intent(CustomerEditActivity.this, CustomerDetailActivity.class);
+            intent.putExtra("customerId", etCustomerId.getText());
+            CustomerEditActivity.this.startActivity(savedIntent);
+
+    } } });
         btnDeleteCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +178,7 @@ public class CustomerEditActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton)
                             {
-                                AgentDB.DeleteAgent(etCustomerId.getText().toString(),
+                                CustomerDB.DeleteCustomer(etCustomerId.getText().toString(),
                                         "api_secretKey_deleteCustomer",
                                         DBHelper.apiURL() + "/api/customer_delete.php",
                                         CustomerEditActivity.this);

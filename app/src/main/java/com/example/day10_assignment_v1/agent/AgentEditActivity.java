@@ -19,6 +19,7 @@ import androidx.core.app.NavUtils;
 
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.Validation.Validation;
 import com.example.day10_assignment_v1.agency.Agency;
 import com.example.day10_assignment_v1.agency.AgencyDB;
 
@@ -127,6 +128,17 @@ public class AgentEditActivity  extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                String alpha = etAgtFirstName.getText().toString();
+                if (!Validation.isValidAlpha(alpha)) {
+                    etAgtFirstName.setError(getString(R.string.Alpha));
+                }
+
+
+
+
+
+
+
                 // getAgentTextData();
                 Agency agentSelect = (Agency) spinAgencies.getSelectedItem();
                 AgentDB.UpdateAgent(etAgentId.getText().toString(),

@@ -6,13 +6,16 @@ import androidx.core.app.NavUtils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.customer.CustomerEditActivity;
 
 public class SupplierEditActivity extends AppCompatActivity {
-    EditText etSupCompany,etSupFirstName,etSupLastName, etSupAddress,etSupCity,etSupProv,etSupPostal,etSupCountry, etSupBusPhone, etSupFax,etSupEmail, etSupURL,etAffiliationId;
+    EditText etSupplierContactId, etSupCompany,etSupFirstName,etSupLastName, etSupAddress,etSupCity,etSupProv,etSupPostal,etSupCountry, etSupBusPhone, etSupFax,etSupEmail, etSupURL,etAffiliationId;
     Button btnUpdateSupplier, btnDeleteSupplier, btnCancel;
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -31,6 +34,7 @@ public class SupplierEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_supplier_edit);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        etSupplierContactId=findViewById(R.id.etSupplierContactId);
         etSupCompany = findViewById(R.id.etSupCompany);
         etSupFirstName = findViewById(R.id.etSupFirstName);
         etSupLastName = findViewById(R.id.etSupLastName);
@@ -67,19 +71,61 @@ public class SupplierEditActivity extends AppCompatActivity {
         String supConURL = intent.getStringExtra("supConURL");
         String affiliationId = intent.getStringExtra("affiliationId");
 
-        etSupFirstName.setText(supConFirstName);
-        etSupLastName.setText(supConLastName);
-        etSupCompany.setText(supConCompany);
-        etSupAddress.setText(supConAddress);
-        etSupCity.setText(supConCity);
-        etSupProv.setText(supConProv);
-        etSupPostal.setText(supConPostal);
-        etSupCountry.setText(supConCountry);
-        etSupBusPhone.setText(supConBusPhone);
-        etSupFax.setText(supConFax);
-        etSupEmail.setText(supConEmail);
-        etSupURL.setText(supConURL);
-        etAffiliationId.setText(affiliationId);
+        if(!supConFirstName.equals("null")){
+        etSupFirstName.setText(supConFirstName);}
+        if(!supConLastName.equals("null")){
+        etSupLastName.setText(supConLastName);}
+        if(!supConCompany.equals("null")){
+        etSupCompany.setText(supConCompany);}
+        if(!supConAddress.equals("null")){
+        etSupAddress.setText(supConAddress);}
+        if(!supConCity.equals("null")){
+        etSupCity.setText(supConCity);}
+        if(!supConProv.equals("null")){
+        etSupProv.setText(supConProv);}
+        if(!supConPostal.equals("null")){
+        etSupPostal.setText(supConPostal);}
+        if(!supConCountry.equals("null")){
+        etSupCountry.setText(supConCountry);}
+        if(!supConBusPhone.equals("null")){
+        etSupBusPhone.setText(supConBusPhone);}
+        if(!supConFax.equals("null")){
+        etSupFax.setText(supConFax);}
+        if(!supConEmail.equals("null")){
+        etSupEmail.setText(supConEmail);}
+        if(!supConURL.equals("null")){
+        etSupURL.setText(supConURL);}
+        if(!affiliationId.equals("null")){
+        etAffiliationId.setText(affiliationId);}
+
+
+        btnUpdateSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SupplierDB.UpdateSupplier(
+                        etSupplierContactId.getText().toString(),
+                        etSupFirstName.getText().toString(),
+                        etSupLastName.getText().toString(),
+                        etSupCompany.getText().toString(),
+                        etSupAddress.getText().toString(),
+                        etSupCity.getText().toString(),
+                        etSupProv.getText().toString(),
+                        etSupPostal.getText().toString(),
+                        etSupCountry.getText().toString(),
+                        etSupBusPhone.getText().toString(),
+                        etSupFax.getText().toString(),
+                        etSupEmail.getText().toString(),
+                        etSupURL.getText().toString(),
+                        etAffiliationId.getText().toString(),
+                        "sait_oosd_2019_update_supSecret",
+                        DBHelper.apiURL() + "/api/supplier_update.php",
+                        SupplierEditActivity.this
+
+
+
+                );
+            }
+        });
 
 
 

@@ -5,4 +5,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="Alpha">Must be alphabetic characters (eg. A-Z, a-z )</string>
+    <string name="Address">Cannot contain special characters (eg. %#$^=)</string>
+    <string name="Phone">Not a recognized phone format(eg. 111-222-3333)</string>
+    <string name="Email">Not a valid e-mail (eg. jon123@travel.ca)</string>
+    <string name="Postal">Not a valid Postal Code (eg. A2B 3C4)</string>
+
+
 </resources>
