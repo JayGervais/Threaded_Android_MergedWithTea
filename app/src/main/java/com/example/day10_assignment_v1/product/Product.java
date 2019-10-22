@@ -56,7 +56,7 @@ public class Product implements Parcelable {
 
     @Override
     public String toString() {
-        return "ID : "+ProductId+" "+ProdName + "";
+        return ProdName;
     }
 
     @Override

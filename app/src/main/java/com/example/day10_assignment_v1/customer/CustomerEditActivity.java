@@ -7,6 +7,7 @@ import androidx.core.app.NavUtils;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -116,12 +117,12 @@ public class CustomerEditActivity extends AppCompatActivity {
                     etCustEmail.getText().toString(),
                     etAgentId.getText().toString()
                     ,
-                    "api_updateCustomer_activitySecret",
-                    DBHelper.apiURL() + "/api/customer_update2.php",
+                    "sait_oosd_2019_update_custSecret",
+                    DBHelper.apiURL() + "/api/customer_update.php",
                     CustomerEditActivity.this);
 
             Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
-            Intent savedIntent = new Intent(CustomerEditActivity.this, CustomerDetailActivity.class);
+            Intent savedIntent = new Intent(CustomerEditActivity.this, CustomerListActivity.class);
             intent.putExtra("customerId", etCustomerId.getText());
             CustomerEditActivity.this.startActivity(savedIntent);
 

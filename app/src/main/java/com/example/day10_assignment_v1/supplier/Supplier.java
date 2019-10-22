@@ -261,7 +261,7 @@ public class Supplier  implements Parcelable {
 
     @Override
     public String toString() {
-        return  ProdName + " " + SupConCompany;
+        return SupConCompany;
     }
 
     @Override

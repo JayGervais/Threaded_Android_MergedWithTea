@@ -180,7 +180,7 @@ public class Customer implements Parcelable
 
     @Override
     public String toString() {
-        return CustFirstName + " " + CustLastName + "  " + "  ID: "+CustomerId;
+        return CustFirstName + " " + CustLastName ;//+ "  " + CustCity;
     }
 
 //    @Override

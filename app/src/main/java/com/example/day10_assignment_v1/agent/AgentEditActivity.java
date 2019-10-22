@@ -128,7 +128,7 @@ public class AgentEditActivity  extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-               // while(validateAgt()){
+                if (validateAgt()==true){
 
                     // getAgentTextData();
                     Agency agentSelect = (Agency) spinAgencies.getSelectedItem();
@@ -145,11 +145,11 @@ public class AgentEditActivity  extends AppCompatActivity
                             DBHelper.apiURL() + "/api/agent_update.php",
                             AgentEditActivity.this);
                     Toast.makeText(AgentEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
-                    Intent savedIntent = new Intent(AgentEditActivity.this, AgentDetailActivity.class);
+                    Intent savedIntent = new Intent(AgentEditActivity.this, AgentListActivity.class);
                     intent.putExtra("agentId", etAgentId.getText());
                     AgentEditActivity.this.startActivity(savedIntent);
                 }
-            });
+            }});
 
         btnDelete.setOnClickListener(new View.OnClickListener()
         {

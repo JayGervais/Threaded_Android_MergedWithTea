@@ -42,14 +42,14 @@
                 android:id="@+id/textView58"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Supplier ID :"
+                android:text="S"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView59"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact ID :"
+                android:text=""
                 android:textSize="18sp" />
 
             <TextView
