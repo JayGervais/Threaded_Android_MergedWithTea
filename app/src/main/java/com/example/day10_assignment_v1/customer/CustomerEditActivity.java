@@ -39,6 +39,8 @@ public class CustomerEditActivity extends AppCompatActivity {
         }
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,21 +49,21 @@ public class CustomerEditActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         etCustomerId = findViewById(R.id.etCustomerId);
-        etCustFirstName=findViewById(R.id.etCustFirstName);
+        etCustFirstName = findViewById(R.id.etCustFirstName);
         etCustLastName = findViewById(R.id.etCustLastName);
-        etCustAddress=findViewById(R.id.etCustAddress);
+        etCustAddress = findViewById(R.id.etCustAddress);
         etCustCity = findViewById(R.id.etCustCity);
-        etCustProv=findViewById(R.id.etCustProv);
+        etCustProv = findViewById(R.id.etCustProv);
         etCustPostal = findViewById(R.id.etCustPostal);
-        etCustCountry=findViewById(R.id.etCustCountry);
+        etCustCountry = findViewById(R.id.etCustCountry);
         etCustHomePhone = findViewById(R.id.etCustHomePhone);
-        etCustBusPhone=findViewById(R.id.etCustBusPhone);
+        etCustBusPhone = findViewById(R.id.etCustBusPhone);
         etCustEmail = findViewById(R.id.etCustEmail);
-        etAgentId=findViewById(R.id.etAgentIdCust);
+        etAgentId = findViewById(R.id.etAgentIdCust);
 
-        btnSaveCustomer=findViewById(R.id.btnSaveCustomer);
-        btnCancel=findViewById(R.id.btnCancel);
-        btnDeleteCustomer=findViewById(R.id.btnDeleteCustomer);
+        btnSaveCustomer = findViewById(R.id.btnSaveCustomer);
+        btnCancel = findViewById(R.id.btnCancel);
+        btnDeleteCustomer = findViewById(R.id.btnDeleteCustomer);
 
         final Intent intent = getIntent();
         String customerId = intent.getStringExtra("customerId");
@@ -95,55 +97,11 @@ public class CustomerEditActivity extends AppCompatActivity {
 
 
         btnSaveCustomer.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-//Validation with error messages
-        String alpha = etCustFirstName.getText().toString();
-        if (!Validation.isValidAlpha(alpha)) {
-            etCustFirstName.setError(getString(R.string.Alpha));
-        }
-        alpha = etCustLastName.getText().toString();
-        if(!Validation.isValidAlpha(alpha)){
-            etCustLastName.setError(getString(R.string.Alpha));
-        }
-        String address = etCustAddress.getText().toString();
-        if(!Validation.isValidAddress(address)){
-            etCustAddress.setError(getString(R.string.Address));
-        }
-        alpha= etCustCity.getText().toString();
-        if(!Validation.isValidAlpha(alpha)){
-            etCustCity.setError(getString(R.string.Alpha));
-        }
-        alpha = etCustProv.getText().toString();
-        if(!Validation.isValidAlpha(alpha)){
-            etCustProv.setError(getString(R.string.Alpha));
-        }
-        String postal = etCustPostal.getText().toString();
-        if(!Validation.isValidPostal(postal)){
-            etCustPostal.setError(getString(R.string.Postal));
-        }
-        alpha = etCustCountry.getText().toString();
-        if(!Validation.isValidAlpha(alpha)) {
-            etCustCountry.setError(getString(R.string.Alpha));
-        }
-        String phone = etCustHomePhone.getText().toString();
-        if(!Validation.isValidPhoneNum(phone)){
-            etCustHomePhone.setError(getString(R.string.Phone));
-        }
-        phone = etCustBusPhone.getText().toString();
-        if(!Validation.isValidPhoneNum(phone)){
-            etCustBusPhone.setError(getString(R.string.Phone));
-        }
-        String email = etCustEmail.getText().toString();
-//        if(!email.equals("null")){
+        @Override
+        public void onClick(View v) {
+            //Validation with error messages
 
-        if(!Validation.isValidEmail(email)){
-            etCustEmail.setError(getString(R.string.Email));
-        }
-    //}
-        else {
-
-
+            if(validateCust()==true){
             CustomerDB.UpdateCustomer(
                     etCustomerId.getText().toString(),
                     etCustFirstName.getText().toString(),
@@ -158,8 +116,8 @@ public class CustomerEditActivity extends AppCompatActivity {
                     etCustEmail.getText().toString(),
                     etAgentId.getText().toString()
                     ,
-                    "sait_oosd_2019_update_custSecret",
-                    DBHelper.apiURL() + "/api/customer_update.php",
+                    "api_updateCustomer_activitySecret",
+                    DBHelper.apiURL() + "/api/customer_update2.php",
                     CustomerEditActivity.this);
 
             Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
@@ -167,7 +125,8 @@ public class CustomerEditActivity extends AppCompatActivity {
             intent.putExtra("customerId", etCustomerId.getText());
             CustomerEditActivity.this.startActivity(savedIntent);
 
-    } } });
+            } } });
+
         btnDeleteCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -198,5 +157,60 @@ public class CustomerEditActivity extends AppCompatActivity {
                 CustomerEditActivity.this.startActivity(savedIntent);
             }
         });
+    }
+    public boolean validateCust(){
+        String alpha = etCustFirstName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etCustFirstName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etCustLastName.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustLastName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String address = etCustAddress.getText().toString();
+        if(!Validation.isValidAddress(address)){
+            etCustAddress.setError(getString(R.string.Address));
+            return false;
+        }
+        alpha= etCustCity.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustCity.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etCustProv.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustProv.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String postal = etCustPostal.getText().toString();
+        if(!Validation.isValidPostal(postal)){
+            etCustPostal.setError(getString(R.string.Postal));
+            return false;
+        }
+        alpha = etCustCountry.getText().toString();
+        if(!Validation.isValidAlpha(alpha)) {
+            etCustCountry.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String phone = etCustHomePhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustHomePhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        phone = etCustBusPhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustBusPhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        String email = etCustEmail.getText().toString();
+
+        if(!Validation.isValidEmailOrNull(email)){
+            etCustEmail.setError(getString(R.string.Email));
+            return false;
+        }
+        else{
+            return true;}
     }
 }

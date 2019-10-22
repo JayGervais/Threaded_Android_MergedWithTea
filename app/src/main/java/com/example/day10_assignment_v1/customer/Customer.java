@@ -183,6 +183,24 @@ public class Customer implements Parcelable
         return CustFirstName + " " + CustLastName + "  " + "  ID: "+CustomerId;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "CustomerId=" + CustomerId +
+//                ", CustFirstName='" + CustFirstName + '\'' +
+//                ", CustLastName='" + CustLastName + '\'' +
+//                ", CustAddress='" + CustAddress + '\'' +
+//                ", CustCity='" + CustCity + '\'' +
+//                ", CustProv='" + CustProv + '\'' +
+//                ", CustPostal='" + CustPostal + '\'' +
+//                ", CustCountry='" + CustCountry + '\'' +
+//                ", CustBusPhone='" + CustBusPhone + '\'' +
+//                ", CustHomePhone='" + CustHomePhone + '\'' +
+//                ", CustEmail='" + CustEmail + '\'' +
+//                ", AgentId='" + AgentId + '\'' +
+//                '}';
+//    }
+
     public Customer(Parcel in){
         String[] cust_data = new String[12];
         in.readStringArray(cust_data);

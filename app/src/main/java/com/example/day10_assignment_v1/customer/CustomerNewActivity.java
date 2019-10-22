@@ -57,51 +57,8 @@ public class CustomerNewActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Validation with error messages
-                String alpha = etCustFirstName.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etCustFirstName.setError(getString(R.string.Alpha));
-                }
-                alpha = etCustLastName.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etCustLastName.setError(getString(R.string.Alpha));
-                }
-                String address = etCustAddress.getText().toString();
-                if (!Validation.isValidAddress(address)) {
-                    etCustAddress.setError(getString(R.string.Address));
-                }
-                alpha = etCustCity.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etCustCity.setError(getString(R.string.Alpha));
-                }
-                alpha = etCustProv.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etCustProv.setError(getString(R.string.Alpha));
-                }
-                String postal = etCustPostal.getText().toString();
-                if (!Validation.isValidPostal(postal)) {
-                    etCustPostal.setError(getString(R.string.Postal));
-                }
-                alpha = etCustCountry.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etCustCountry.setError(getString(R.string.Alpha));
-                }
-                String phone = etCustHomePhone.getText().toString();
-                if (!Validation.isValidPhoneNum(phone)) {
-                    etCustHomePhone.setError(getString(R.string.Phone));
-                }
-                phone = etCustBusPhone.getText().toString();
-                if (!Validation.isValidPhoneNum(phone)) {
-                    etCustBusPhone.setError(getString(R.string.Phone));
-                }
-                String email = etCustEmail.getText().toString();
-//        if(!email.equals("null")){
 
-                if (!Validation.isValidEmail(email)) {
-                    etCustEmail.setError(getString(R.string.Email));
-                }
-                //}
-                else {
-
+                if (validateCust()==true){
                     CustomerDB.UpdateCustomer(null,
                             etCustFirstName.getText().toString(),
                             etCustLastName.getText().toString(),
@@ -143,6 +100,61 @@ public class CustomerNewActivity extends AppCompatActivity {
         inflater.inflate(R.menu.mainmenu, menu);
         return true;
 
+    }
+    public boolean validateCust(){
+        String alpha = etCustFirstName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etCustFirstName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etCustLastName.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustLastName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String address = etCustAddress.getText().toString();
+        if(!Validation.isValidAddress(address)){
+            etCustAddress.setError(getString(R.string.Address));
+            return false;
+        }
+        alpha= etCustCity.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustCity.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etCustProv.getText().toString();
+        if(!Validation.isValidAlpha(alpha)){
+            etCustProv.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String postal = etCustPostal.getText().toString();
+        if(!Validation.isValidPostal(postal)){
+            etCustPostal.setError(getString(R.string.Postal));
+            return false;
+        }
+        alpha = etCustCountry.getText().toString();
+        if(!Validation.isValidAlpha(alpha)) {
+            etCustCountry.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String phone = etCustHomePhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustHomePhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        phone = etCustBusPhone.getText().toString();
+        if(!Validation.isValidPhoneNum(phone)){
+            etCustBusPhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        String email = etCustEmail.getText().toString();
+
+        if(!Validation.isValidEmailOrNull(email)){
+            etCustEmail.setError(getString(R.string.Email));
+            return false;
+        }
+        else{
+            return true;}
     }
 
 }

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.R;
+import com.example.day10_assignment_v1.Validation.Validation;
 import com.example.day10_assignment_v1.agency.Agency;
 import com.example.day10_assignment_v1.agency.AgencyDB;
 
@@ -82,6 +83,7 @@ public class AddAgentActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                if(validateAgt()==true){
                 Agency agency = (Agency) spinnerAgencies.getSelectedItem();
 
                 AgentDB.UpdateAgent(null,
@@ -100,7 +102,7 @@ public class AddAgentActivity extends AppCompatActivity
                 Intent savedIntent = new Intent(AddAgentActivity.this, AgentListActivity.class);
                 AddAgentActivity.this.startActivity(savedIntent);
             }
-        });
+        }});
 
         btnCancel.setOnClickListener(new View.OnClickListener()
         {
@@ -115,5 +117,39 @@ public class AddAgentActivity extends AppCompatActivity
         AgencyDB.GetAgencyDataDropdown(DBHelper.apiURL() + "/api/agency_dropdown.php", this, spinnerAgencies);
     }
 
+    public boolean validateAgt(){
+        String alpha = etAgtFirstName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtFirstName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etAgtMiddleInitial.getText().toString();
+        if (!Validation.isValidAlphaOrNull(alpha)) {
+            etAgtMiddleInitial.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etAgtLastName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtLastName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String phone = etAgtBusPhone.getText().toString();
+        if (!Validation.isValidPhoneNum(phone)) {
+            etAgtBusPhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        String email = etAgtEmail.getText().toString();
+        if (!Validation.isValidEmail(email)) {
+            etAgtEmail.setError(getString(R.string.Email));
+            return false;
+        }
+        alpha = etAgtPosition.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtPosition.setError(getString(R.string.Alpha));
+            return false;
+        } else {
+            return true;
 
+        }
+    }
 }

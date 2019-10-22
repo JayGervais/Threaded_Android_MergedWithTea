@@ -126,39 +126,30 @@ public class AgentEditActivity  extends AppCompatActivity
         btnSave.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
-            {
-                String alpha = etAgtFirstName.getText().toString();
-                if (!Validation.isValidAlpha(alpha)) {
-                    etAgtFirstName.setError(getString(R.string.Alpha));
+            public void onClick(View v) {
+
+               // while(validateAgt()){
+
+                    // getAgentTextData();
+                    Agency agentSelect = (Agency) spinAgencies.getSelectedItem();
+                    AgentDB.UpdateAgent(etAgentId.getText().toString(),
+                            etAgtFirstName.getText().toString(),
+                            etAgtMiddleInitial.getText().toString(),
+                            etAgtLastName.getText().toString(),
+                            etAgtBusPhone.getText().toString(),
+                            etAgtEmail.getText().toString(),
+                            etAgtPosition.getText().toString(),
+                            String.valueOf(agentSelect.getAgencyId()),
+                            etPassword.getText().toString(),
+                            "api_updateAgent_activitySecret",
+                            DBHelper.apiURL() + "/api/agent_update.php",
+                            AgentEditActivity.this);
+                    Toast.makeText(AgentEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
+                    Intent savedIntent = new Intent(AgentEditActivity.this, AgentDetailActivity.class);
+                    intent.putExtra("agentId", etAgentId.getText());
+                    AgentEditActivity.this.startActivity(savedIntent);
                 }
-
-
-
-
-
-
-
-                // getAgentTextData();
-                Agency agentSelect = (Agency) spinAgencies.getSelectedItem();
-                AgentDB.UpdateAgent(etAgentId.getText().toString(),
-                        etAgtFirstName.getText().toString(),
-                        etAgtMiddleInitial.getText().toString(),
-                        etAgtLastName.getText().toString(),
-                        etAgtBusPhone.getText().toString(),
-                        etAgtEmail.getText().toString(),
-                        etAgtPosition.getText().toString(),
-                        String.valueOf(agentSelect.getAgencyId()),
-                        etPassword.getText().toString(),
-                        "api_updateAgent_activitySecret",
-                        DBHelper.apiURL() + "/api/agent_update.php",
-                        AgentEditActivity.this);
-                Toast.makeText(AgentEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
-                Intent savedIntent = new Intent(AgentEditActivity.this, AgentDetailActivity.class);
-                intent.putExtra("agentId", etAgentId.getText());
-                AgentEditActivity.this.startActivity(savedIntent);
-            }
-        });
+            });
 
         btnDelete.setOnClickListener(new View.OnClickListener()
         {
@@ -195,6 +186,41 @@ public class AgentEditActivity  extends AppCompatActivity
         });
 
         AgencyDB.GetAgencyDataDropdown(DBHelper.apiURL() + "/api/agency_dropdown.php", this, spinAgencies);
+    }
+    public boolean validateAgt(){
+        String alpha = etAgtFirstName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtFirstName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etAgtMiddleInitial.getText().toString();
+        if (!Validation.isValidAlphaOrNull(alpha)) {
+            etAgtMiddleInitial.setError(getString(R.string.Alpha));
+            return false;
+        }
+        alpha = etAgtLastName.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtLastName.setError(getString(R.string.Alpha));
+            return false;
+        }
+        String phone = etAgtBusPhone.getText().toString();
+        if (!Validation.isValidPhoneNum(phone)) {
+            etAgtBusPhone.setError(getString(R.string.Phone));
+            return false;
+        }
+        String email = etAgtEmail.getText().toString();
+        if (!Validation.isValidEmail(email)) {
+            etAgtEmail.setError(getString(R.string.Email));
+            return false;
+        }
+        alpha = etAgtPosition.getText().toString();
+        if (!Validation.isValidAlpha(alpha)) {
+            etAgtPosition.setError(getString(R.string.Alpha));
+            return false;
+        } else {
+            return true;
+
+        }
     }
 
 }
