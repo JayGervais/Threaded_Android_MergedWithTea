@@ -3,23 +3,32 @@ package com.example.day10_assignment_v1.supplier;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.day10_assignment_v1.DBHelper;
+//import com.example.day10_assignment_v1.R;
+
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.Validation.Validation;
 import com.example.day10_assignment_v1.customer.CustomerEditActivity;
+import com.example.day10_assignment_v1.customer.CustomerListActivity;
+import com.example.day10_assignment_v1.product.ProductListActivity;
+import com.example.day10_assignment_v1.product.ProductSuppliersListActivity;
 
 import java.util.regex.Pattern;
 
 public class SupplierEditActivity extends AppCompatActivity {
-    EditText etSupplierContactId, etSupCompany,etSupFirstName,etSupLastName, etSupAddress,etSupCity,etSupProv,etSupPostal,etSupCountry, etSupBusPhone, etSupFax,etSupEmail, etSupURL,etAffiliationId;
-    Button btnUpdateSupplier, btnDeleteSupplier, btnCancel;
+    EditText etSupplierContactId, etSupCompany,etSupFirstName,etSupLastName,
+            etSupAddress,etSupCity,etSupProv,etSupPostal,etSupCountry, etSupBusPhone,
+            etSupFax,etSupEmail, etSupURL,etAffiliationId;
+    Button btnSaveSupplier, btnDeleteSupplier, btnCancel;
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -35,9 +44,9 @@ public class SupplierEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_edit);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        etSupplierContactId=findViewById(R.id.etSupplierContactId);
+
         etSupCompany = findViewById(R.id.etSupCompany);
         etSupFirstName = findViewById(R.id.etSupFirstName);
         etSupLastName = findViewById(R.id.etSupLastName);
@@ -51,17 +60,18 @@ public class SupplierEditActivity extends AppCompatActivity {
         etSupEmail = findViewById(R.id.etSupEmail);
         etSupURL = findViewById(R.id.etSupURL);
         etAffiliationId = findViewById(R.id.etAffiliationId);
+        etSupplierContactId=findViewById(R.id.etSupplierContactId);
 
 
-        btnUpdateSupplier=findViewById(R.id.btnUpdateSupplier);
+        btnSaveSupplier=findViewById(R.id.btnSaveSupplier);
         btnDeleteSupplier=findViewById(R.id.btnDeleteSupplier);
         btnCancel=findViewById(R.id.btnCancel);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
-
+        String supplierContactId = intent.getStringExtra("supplierContactId");
         String supConFirstName = intent.getStringExtra("supConFirstName");
-       String supConLastName = intent.getStringExtra("subConLastName");
+       String supConLastName = intent.getStringExtra("supConLastName");
          String supConCompany = intent.getStringExtra("supConCompany");
        String supConAddress = intent.getStringExtra("supConAddress");
         String supConCity = intent.getStringExtra("supConCity");
@@ -73,36 +83,55 @@ public class SupplierEditActivity extends AppCompatActivity {
         String supConEmail = intent.getStringExtra("supConEmail");
         String supConURL = intent.getStringExtra("supConURL");
         String affiliationId = intent.getStringExtra("affiliationId");
-
-        if(!supConFirstName.equals("null")){
-        etSupFirstName.setText(supConFirstName);}
-        if(!supConLastName.equals("null")){
-        etSupLastName.setText(supConLastName);}
-        if(!supConCompany.equals("null")){
-        etSupCompany.setText(supConCompany);}
-        if(!supConAddress.equals("null")){
-        etSupAddress.setText(supConAddress);}
-        if(!supConCity.equals("null")){
-        etSupCity.setText(supConCity);}
-        if(!supConProv.equals("null")){
-        etSupProv.setText(supConProv);}
-        if(!supConPostal.equals("null")){
-        etSupPostal.setText(supConPostal);}
-        if(!supConCountry.equals("null")){
-        etSupCountry.setText(supConCountry);}
-        if(!supConBusPhone.equals("null")){
-        etSupBusPhone.setText(supConBusPhone);}
-        if(!supConFax.equals("null")){
-        etSupFax.setText(supConFax);}
-        if(!supConEmail.equals("null")){
-        etSupEmail.setText(supConEmail);}
-        if(!supConURL.equals("null")){
-        etSupURL.setText(supConURL);}
-        if(!affiliationId.equals("null")){
-        etAffiliationId.setText(affiliationId);}
+       // String supplierId = intent.getStringExtra("supplierId");
 
 
-        btnUpdateSupplier.setOnClickListener(new View.OnClickListener() {
+       // etSupplierId.setText(supplierId);
+        etSupplierContactId.setText(supplierContactId);
+        etSupFirstName.setText(supConFirstName);
+        etSupLastName.setText(supConLastName);
+        etSupCompany.setText(supConCompany);
+        etSupAddress.setText(supConAddress);
+        etSupCity.setText(supConCity);
+        etSupProv.setText(supConProv);
+        etSupPostal.setText(supConPostal);
+        etSupCountry.setText(supConCountry);
+        etSupBusPhone.setText(supConBusPhone);
+        etSupFax.setText(supConFax);
+        etSupEmail.setText(supConEmail);
+        etSupURL.setText(supConURL);
+        etAffiliationId.setText(affiliationId);
+//
+//        if(!supConFirstName.equals("null")){
+//        etSupFirstName.setText(supConFirstName);}
+//        if(!supConLastName.equals("null")){
+//        etSupLastName.setText(supConLastName);}
+//        if(!supConCompany.equals("null")){
+//        etSupCompany.setText(supConCompany);}
+//        if(!supConAddress.equals("null")){
+//        etSupAddress.setText(supConAddress);}
+//        if(!supConCity.equals("null")){
+//        etSupCity.setText(supConCity);}
+//        if(!supConProv.equals("null")){
+//        etSupProv.setText(supConProv);}
+//        if(!supConPostal.equals("null")){
+//        etSupPostal.setText(supConPostal);}
+//        if(!supConCountry.equals("null")){
+//        etSupCountry.setText(supConCountry);}
+//        if(!supConBusPhone.equals("null")){
+//        etSupBusPhone.setText(supConBusPhone);}
+//        if(!supConFax.equals("null")){
+//        etSupFax.setText(supConFax);}
+//        if(!supConEmail.equals("null")){
+//        etSupEmail.setText(supConEmail);}
+//        if(!supConURL.equals("null")){
+//        etSupURL.setText(supConURL);}
+//        if(!affiliationId.equals("null")){
+//        etAffiliationId.setText(affiliationId);}
+
+
+
+        btnSaveSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -123,13 +152,13 @@ public class SupplierEditActivity extends AppCompatActivity {
                         etSupEmail.getText().toString(),
                         etSupURL.getText().toString(),
                         etAffiliationId.getText().toString(),
-                        "sait_oosd_2019_update_supSecret",
+                        "api_update_activitySecret",
                         DBHelper.apiURL() + "/api/supplier_update.php",
-                        SupplierEditActivity.this
-
-
-
-                );
+                        SupplierEditActivity.this);
+                    Toast.makeText(SupplierEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
+                    Intent savedIntent = new Intent(SupplierEditActivity.this, ProductListActivity.class);
+                    //intent.putExtra("supplierContactId", etCustomerId.getText());
+                    SupplierEditActivity.this.startActivity(savedIntent);
             }}
         });
 
@@ -146,7 +175,7 @@ public class SupplierEditActivity extends AppCompatActivity {
             return false;
         }
         String address = etSupAddress.getText().toString();
-        if(!Validation.isValidAlphaOrNull(address)){
+        if(!Validation.isValidAddressOrNull(address)){
             etSupAddress.setError(getString(R.string.Address));
             return false;
         }
@@ -161,7 +190,7 @@ public class SupplierEditActivity extends AppCompatActivity {
             return false;
         }
         String postal = etSupPostal.getText().toString();
-        if(!Validation.isValidPhoneNumOrNull(postal)){
+        if(!Validation.isValidPostalOrNull(postal)){
             etSupPostal.setError(getString(R.string.Postal));
             return false;
         }

@@ -141,7 +141,7 @@ public class AgentEditActivity  extends AppCompatActivity
                             etAgtPosition.getText().toString(),
                             String.valueOf(agentSelect.getAgencyId()),
                             etPassword.getText().toString(),
-                            "api_updateAgent_activitySecret",
+                            "sait_oosd_2019_updateSecret",
                             DBHelper.apiURL() + "/api/agent_update.php",
                             AgentEditActivity.this);
                     Toast.makeText(AgentEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();

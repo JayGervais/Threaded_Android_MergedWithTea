@@ -186,40 +186,31 @@
             android:layout_height="wrap_content"
             android:text="Web URL :" />
 
-        <EditText
-            android:id="@+id/etSupURL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+                <EditText
+                    android:id="@+id/etSupURL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
         <TextView
             android:id="@+id/textView88"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Affilitation ID :" />
 
-        <EditText
-            android:id="@+id/etAffiliationId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+                <EditText
+                    android:id="@+id/etAffiliationId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
         <TextView
             android:id="@+id/textView89"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Postal" />
 
-        <EditText
-            android:id="@+id/editText7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-        <Button
+                <Button
             android:id="@+id/btnSaveSupplier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

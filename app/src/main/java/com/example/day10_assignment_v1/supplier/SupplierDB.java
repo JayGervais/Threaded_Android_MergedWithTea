@@ -133,7 +133,7 @@ public class SupplierDB {
     public static void UpdateSupplier(final String supplierContactId, final String supConFirstName, final String supConLastName,
                                       final String supConCompany, final String supConAddress, final String supConCity, final String supConProv,
                                       final String supConPostal, final String supConCountry, final String supConBusPhone, final String supConFax,
-                                      final String supConEmail, final String supConURL, final String affiliationId,final String apiSecret,
+                                      final String supConEmail, final String supConURL, final String affiliationId, final String apiSecret,
                                       final String url, final Context context)
     {
         final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
@@ -176,6 +176,7 @@ public class SupplierDB {
                 parameters.put("supConEmail", supConEmail);
                 parameters.put("supConURL", supConURL);
                 parameters.put("affiliationId", affiliationId);
+
                 parameters.put("apiSecret", apiSecret);
                 return parameters;
             }

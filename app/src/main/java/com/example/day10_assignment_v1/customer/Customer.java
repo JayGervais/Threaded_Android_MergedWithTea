@@ -13,8 +13,8 @@ public class Customer implements Parcelable
     String CustProv;
     String CustPostal;
     String CustCountry;
-    String CustBusPhone;
     String CustHomePhone;
+    String CustBusPhone;
     String CustEmail;
     String AgentId;
 
@@ -30,7 +30,7 @@ public class Customer implements Parcelable
 
     public Customer(Integer customerId, String custFirstName, String custLastName,
                     String custAddress, String custCity, String custProv, String custPostal,
-                    String custCountry, String custBusPhone, String custHomePhone,
+                    String custCountry, String custHomePhone,String custBusPhone,
                     String custEmail, String agentId) {
         CustomerId = customerId;
         CustFirstName = custFirstName;
@@ -40,8 +40,8 @@ public class Customer implements Parcelable
         CustProv = custProv;
         CustPostal = custPostal;
         CustCountry = custCountry;
-        CustBusPhone = custBusPhone;
         CustHomePhone = custHomePhone;
+        CustBusPhone = custBusPhone;
         CustEmail = custEmail;
         AgentId = agentId;
     }
@@ -213,8 +213,8 @@ public class Customer implements Parcelable
         CustProv = cust_data[5];
         CustPostal = cust_data[6];
         CustCountry = cust_data[7];
-        CustBusPhone = cust_data[8];
-        CustHomePhone = cust_data[9];
+        CustHomePhone = cust_data[8];
+        CustBusPhone = cust_data[9];
         CustEmail = cust_data[10];
         AgentId = cust_data[11];
     }
@@ -224,7 +224,7 @@ public class Customer implements Parcelable
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[]{
                 String.valueOf(CustomerId),CustFirstName,CustLastName,CustAddress,CustCity,
-                CustProv,CustPostal,CustCountry,CustBusPhone,CustHomePhone,CustEmail,AgentId
+                CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId
         });
     }
 }

@@ -38,10 +38,12 @@ Button btnUpdateSupplier;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_detail);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        tvSupplierId=findViewById(R.id.tvSupplierId);
-        tvSupContactId=findViewById(R.id.tvSupContactId);
+        btnUpdateSupplier = (Button)findViewById(R.id.btnUpdateSup);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //tvSupplierId=findViewById(R.id.tvSupplierId);
+       // tvSupContactId=findViewById(R.id.tvSupContactId);
         tvSupConCompany=findViewById(R.id.tvSupConCompany);
         tvSupConFirstName=findViewById(R.id.tvSupConFirstName);
         tvSupConLastName=findViewById(R.id.tvSupConLastName);
@@ -56,13 +58,13 @@ Button btnUpdateSupplier;
         tvSupConURL=findViewById(R.id.tvSupConURL);
         tvAffiliationId=findViewById(R.id.tvAffiliationId);
 
-        btnUpdateSupplier=findViewById(R.id.btnUpdateSupplier);
+        btnUpdateSupplier=findViewById(R.id.btnUpdateSup);
 
         final Supplier supplierObj = getIntent().getParcelableExtra("supplier");
 
-        //final Integer customerId = customerObj.getCustomerId();
-        final Integer supplierId =supplierObj.getSupplierId();
-        final Integer supContactId = supplierObj.getSupplierContactId();
+
+       // final Integer supplierId =supplierObj.getSupplierId();
+        final Integer supplierContactId = supplierObj.getSupplierContactId();
         final String supConFirstName = supplierObj.getSupConFirstName();
         final String supConLastName = supplierObj.getSupConLastName();
         final String supConCompany = supplierObj.getSupConCompany();
@@ -75,11 +77,11 @@ Button btnUpdateSupplier;
         final String supConFax = supplierObj.getSupConFax();
         final String supConEmail = supplierObj.getSupConEmail();
         final String supConURL = supplierObj.getSupConURL();
-        final String affiliationId = supplierObj.getProdName();
+        final String affiliationId = supplierObj.getAffiliationId();
 
 
         //tvSupplierId.setText(supplierId);
-       // tvSupContactId.setText(supContactId);
+       //tvSupContactId.setText(supContactId);
         tvSupConFirstName.setText(supConFirstName);
        tvSupConLastName.setText(supConLastName);
         tvSupConCompany.setText(supConCompany);
@@ -94,11 +96,13 @@ Button btnUpdateSupplier;
         tvSupConURL.setText(supConURL);
         tvAffiliationId.setText(affiliationId);
 
+
         btnUpdateSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SupplierDetailActivity.this, SupplierEditActivity.class);
                 //intent.putExtra("customerId",String.valueOf(customerId));
+                intent.putExtra("supplierContactId", String.valueOf(supplierContactId));
                 intent.putExtra("supConFirstName",supConFirstName);
                 intent.putExtra("supConLastName",supConLastName);
                 intent.putExtra("supConCompany",supConCompany);
@@ -112,8 +116,9 @@ Button btnUpdateSupplier;
                 intent.putExtra("supConEmail",supConEmail);
                 intent.putExtra("supConURL",supConURL);
                 intent.putExtra("affiliationId",affiliationId);
-                SupplierDetailActivity.this.startActivity(intent);
+                startActivity(intent);
             }
         });
+
     }
 }

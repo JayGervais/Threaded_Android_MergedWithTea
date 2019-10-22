@@ -172,10 +172,10 @@ public class CustomerDB
             protected Map<String, String> getParams()
             {
                 Map<String, String> parameters = new HashMap<>();
-                if (customerId != null)
-                {
+//                if (customerId != null)
+//                {
                     parameters.put("customerId", customerId);
-                }
+
                 parameters.put("custFirstName", custFirstName);
                 parameters.put("custLastName", custLastName);
                 parameters.put("custAddress", custAddress);

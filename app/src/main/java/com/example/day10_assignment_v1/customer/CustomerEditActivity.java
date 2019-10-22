@@ -123,7 +123,7 @@ public class CustomerEditActivity extends AppCompatActivity {
 
             Toast.makeText(CustomerEditActivity.this, "Changes Saved", Toast.LENGTH_LONG).show();
             Intent savedIntent = new Intent(CustomerEditActivity.this, CustomerListActivity.class);
-            intent.putExtra("customerId", etCustomerId.getText());
+            intent.putExtra("customerId", etCustomerId.getText().toString());
             CustomerEditActivity.this.startActivity(savedIntent);
 
             } } });
