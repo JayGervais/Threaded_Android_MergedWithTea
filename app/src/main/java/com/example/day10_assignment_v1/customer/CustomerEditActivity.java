@@ -28,17 +28,17 @@ public class CustomerEditActivity extends AppCompatActivity {
             etCustCity, etCustProv, etCustPostal, etCustCountry, etCustHomePhone,
             etCustBusPhone, etCustEmail, etAgentId;
     Button btnSaveCustomer, btnCancel, btnDeleteCustomer;
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+ //   @Override
+//    public boolean onOptionsItemSelected(MenuItem item)
+//    {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                NavUtils.navigateUpFromSameTask(this);
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
 
 
@@ -115,8 +115,7 @@ public class CustomerEditActivity extends AppCompatActivity {
                     etCustHomePhone.getText().toString(),
                     etCustBusPhone.getText().toString(),
                     etCustEmail.getText().toString(),
-                    etAgentId.getText().toString()
-                    ,
+                    etAgentId.getText().toString(),
                     "sait_oosd_2019_update_custSecret",
                     DBHelper.apiURL() + "/api/customer_update.php",
                     CustomerEditActivity.this);

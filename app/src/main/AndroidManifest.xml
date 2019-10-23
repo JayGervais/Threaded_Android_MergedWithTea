@@ -14,16 +14,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".supplier.SupplierEditActivity" >
+        <activity android:name=".supplier.SupplierEditActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".supplier.SupplierDetailActivity"/>
+                android:value=".supplier.SupplierDetailActivity" />
         </activity>
         <activity android:name=".supplier.SupplierNewActivity" />
-        <activity android:name=".supplier.SupplierDetailActivity" >
+        <activity android:name=".supplier.SupplierDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".product.ProductSuppliersListActivity"/>
+                android:value=".product.ProductSuppliersListActivity" />
         </activity>
         <activity android:name=".product.ProductEditActivity" />
         <activity android:name=".product.ProductNewActivity" />

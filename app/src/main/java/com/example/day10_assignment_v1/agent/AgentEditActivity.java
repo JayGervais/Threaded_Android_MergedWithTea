@@ -128,7 +128,7 @@ public class AgentEditActivity  extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                if (validateAgt()==true){
+               if (validateAgt()==true){
 
                     // getAgentTextData();
                     Agency agentSelect = (Agency) spinAgencies.getSelectedItem();

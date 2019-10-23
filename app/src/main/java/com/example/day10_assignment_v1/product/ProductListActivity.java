@@ -22,8 +22,8 @@ import com.example.day10_assignment_v1.agent.AgentListActivity;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;
 
-public class ProductListActivity extends AppCompatActivity {
-    ListView lvProduct;
+public class ProductListActivity extends AppCompatActivity  {
+    ListView lvProduct, lvProdSup;
     Button btnNewProduct;
 
     @Override
@@ -36,6 +36,7 @@ public class ProductListActivity extends AppCompatActivity {
 
 
         lvProduct=findViewById(R.id.lvProduct);
+        //lvProdSup=findViewById(R.id.lvProdSup);
         btnNewProduct=findViewById(R.id.btnNewProduct);
 
 
@@ -43,11 +44,13 @@ public class ProductListActivity extends AppCompatActivity {
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), ProductSuppliersListActivity.class);
+
+                Intent intent = getIntent();
                 intent.putExtra("product", (Product) lvProduct.getItemAtPosition(position));
                 startActivity(intent);
             }
         });
+
         btnNewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

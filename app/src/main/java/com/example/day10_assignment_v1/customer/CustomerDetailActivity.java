@@ -46,6 +46,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_detail2);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tvCustomerId = findViewById(R.id.tvCustomerId);
         tvCustFirstName = findViewById(R.id.tvCustFirstName);

@@ -14,7 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.day10_assignment_v1.DBHelper;
-import com.example.day10_assignment_v1.agent.Agent;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -172,10 +172,9 @@ public class CustomerDB
             protected Map<String, String> getParams()
             {
                 Map<String, String> parameters = new HashMap<>();
-//                if (customerId != null)
-//                {
+                if (customerId != null) {
                     parameters.put("customerId", customerId);
-
+                }
                 parameters.put("custFirstName", custFirstName);
                 parameters.put("custLastName", custLastName);
                 parameters.put("custAddress", custAddress);

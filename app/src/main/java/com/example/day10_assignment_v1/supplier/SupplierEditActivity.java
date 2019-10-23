@@ -1,9 +1,12 @@
 package com.example.day10_assignment_v1.supplier;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,6 +20,9 @@ import com.example.day10_assignment_v1.DBHelper;
 
 import com.example.day10_assignment_v1.R;
 import com.example.day10_assignment_v1.Validation.Validation;
+import com.example.day10_assignment_v1.agent.AgentDB;
+import com.example.day10_assignment_v1.agent.AgentEditActivity;
+import com.example.day10_assignment_v1.agent.AgentListActivity;
 import com.example.day10_assignment_v1.customer.CustomerEditActivity;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;
 import com.example.day10_assignment_v1.product.ProductListActivity;
@@ -29,17 +35,17 @@ public class SupplierEditActivity extends AppCompatActivity {
             etSupAddress,etSupCity,etSupProv,etSupPostal,etSupCountry, etSupBusPhone,
             etSupFax,etSupEmail, etSupURL,etAffiliationId;
     Button btnSaveSupplier, btnDeleteSupplier, btnCancel;
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item)
+//    {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                NavUtils.navigateUpFromSameTask(this);
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,7 +168,37 @@ public class SupplierEditActivity extends AppCompatActivity {
             }}
         });
 
+        btnDeleteSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(SupplierEditActivity.this)
+                        .setTitle("Delete Supplier")
+                        .setMessage("Are you sure you want to delete Supplier, " + etSupCompany.getText()  + "?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton)
+                            {
+                                SupplierDB.DeleteSupplier(etSupplierContactId.getText().toString(),
+                                        "api_secretKey",
+                                        DBHelper.apiURL() + "/api/supplier_delete.php",
+                                        SupplierEditActivity.this);
+                                Toast.makeText(SupplierEditActivity.this, "Supplier Deleted Successfully", Toast.LENGTH_LONG).show();
+                                Intent savedIntent = new Intent(SupplierEditActivity.this, ProductListActivity.class);
+                                SupplierEditActivity.this.startActivity(savedIntent);
+                            }})
+                        .setNegativeButton(android.R.string.no, null).show();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savedIntent = new Intent(SupplierEditActivity.this, SupplierDetailActivity.class);
+                SupplierEditActivity.this.startActivity(savedIntent);
+            }
+        });
     }
+
     public boolean validateSup(){
         String alpha = etSupFirstName.getText().toString();
         if (!Validation.isValidAlphaOrNull(alpha)) {

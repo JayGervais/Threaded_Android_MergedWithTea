@@ -20,19 +20,21 @@
 
     <ListView
         android:id="@+id/lvProduct"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        style="@style/Widget.AppCompat.ListView.Menu"
+        android:layout_width="178dp"
+        android:layout_height="573dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:background="#dfe6e1"
         android:headerDividersEnabled="true"
+        android:minHeight="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView66"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
     <Button
         android:id="@+id/btnNewProduct"
@@ -46,4 +48,19 @@
         android:text="Add New Product"
         app:layout_constraintBottom_toBottomOf="@+id/textView66"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.day10_assignment_v1.product.ProductSuppliersListActivity"
+        android:layout_width="222dp"
+        android:layout_height="579dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lvProduct"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewProduct" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
