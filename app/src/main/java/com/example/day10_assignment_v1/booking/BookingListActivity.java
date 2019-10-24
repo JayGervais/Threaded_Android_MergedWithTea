@@ -95,7 +95,7 @@ public class BookingListActivity extends AppCompatActivity
 
             // url builder for date select query
             Uri.Builder dateBuilder = new Uri.Builder();
-            dateBuilder.scheme("https").authority(DBHelper.apiAuth())
+            dateBuilder.scheme("http").encodedAuthority(DBHelper.apiAuth())
                     .appendPath("api")
                     .appendPath("booking_data_dates.php")
                     .appendQueryParameter("StartDate", startingDate)

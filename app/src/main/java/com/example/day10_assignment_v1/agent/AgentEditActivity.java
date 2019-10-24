@@ -98,7 +98,7 @@ public class AgentEditActivity  extends AppCompatActivity
 
         // set text for agency
         Uri.Builder builder = new Uri.Builder();
-        builder.scheme("https").authority(DBHelper.apiAuth())
+        builder.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("agent_spinner_select.php")
                 .appendQueryParameter("AgencyId", String.valueOf(agencyId));

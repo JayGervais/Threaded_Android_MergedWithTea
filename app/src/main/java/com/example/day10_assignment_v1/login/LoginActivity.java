@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity
                     {
                         // string builder to get user session
                         Uri.Builder loginURL = new Uri.Builder();
-                        loginURL.scheme("https").authority(DBHelper.apiAuth())
+                        loginURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                                 .appendPath("api")
                                 .appendPath("login.php")
                                 .appendQueryParameter("email", String.valueOf(etEmail.getText()))
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity
                     {
                         // string builder to get user session
                         Uri.Builder adminLoginURL = new Uri.Builder();
-                        adminLoginURL.scheme("https").authority(DBHelper.apiAuth())
+                        adminLoginURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                                 .appendPath("api")
                                 .appendPath("admin_login.php")
                                 .appendQueryParameter("email", String.valueOf(etEmail.getText()))

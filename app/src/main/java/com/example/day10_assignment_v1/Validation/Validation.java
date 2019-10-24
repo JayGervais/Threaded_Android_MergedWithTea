@@ -28,7 +28,7 @@ public class Validation {
 
 
     public static boolean isValidAlphaOrNull(String alpha){
-        return alpha.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+        return alpha.matches("^[a-zA-z]+([ '-][a-zA-Z]+)*");
     }
     public static boolean isValidEmailOrNull(String email){
 
