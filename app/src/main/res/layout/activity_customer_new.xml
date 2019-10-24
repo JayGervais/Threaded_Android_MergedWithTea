@@ -148,7 +148,7 @@
                     android:text="Buisness Phone :" />
 
                 <EditText
-                    android:id="@+id/etBusPhoneN"
+                    android:id="@+id/etCustBusPhoneN"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -179,6 +179,7 @@
                     android:layout_height="55dp"
                     android:ems="10"
                     android:inputType="textPersonName" />
+
                 <Button
                     android:id="@+id/btnSaveNewCustomer"
                     android:layout_width="match_parent"

@@ -30,7 +30,7 @@ public class CustomerNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_new);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //etCustomerId = findViewById(R.id.etCustomerIdN);
         etCustFirstName=findViewById(R.id.etCustFirstNameN);
@@ -41,9 +41,9 @@ public class CustomerNewActivity extends AppCompatActivity {
         etCustPostal = findViewById(R.id.etCustPostalN);
         etCustCountry=findViewById(R.id.etCustCountryN);
         etCustHomePhone = findViewById(R.id.etCustHomePhoneN);
-        etCustBusPhone=findViewById(R.id.etCustHomePhoneN);
+        etCustBusPhone=findViewById(R.id.etCustBusPhoneN);
         etCustEmail=findViewById(R.id.etCustEmailN);
-        etAgentId=findViewById(R.id.etAgentId);
+        etAgentId=findViewById(R.id.etAgentidN);
 
 
 
@@ -71,7 +71,7 @@ public class CustomerNewActivity extends AppCompatActivity {
                             etCustBusPhone.getText().toString(),
                             etCustEmail.getText().toString(),
                             etAgentId.getText().toString(),
-                            "sait_oosd_2019_add_custSecret",
+                            "sait_oosd_2019_updateSecret",
                             DBHelper.apiURL() + "/api/customer_add.php",
                             CustomerNewActivity.this);
                     Toast.makeText(CustomerNewActivity.this, "New Customer Added", Toast.LENGTH_LONG).show();

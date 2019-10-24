@@ -56,7 +56,7 @@ public class ProductSuppliersListActivity extends Fragment {
 
 
         Uri.Builder suppliersURL = new Uri.Builder();
-        suppliersURL.scheme("https").authority(DBHelper.apiAuth())
+        suppliersURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("suppliercontacts_data.php")
                 .appendQueryParameter("ProductId", prodId);
