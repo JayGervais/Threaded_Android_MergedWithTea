@@ -10,13 +10,16 @@ public class DBHelper
     // global strings for API
     public static String apiURL()
     {
-        String url = "infastory.com";
-        return "https://" + url;
+        String url = "192.168.137.17:5050";
+        return "http://" + url;
+//        String url = "infastory.com";
+//        return "https://" + url;
     }
 
     public static String apiAuth()
     {
-        String url = "infastory.com";
+//        String url = "infastory.com";
+        String url = "192.168.137.17:5050";
         return url;
     }
 

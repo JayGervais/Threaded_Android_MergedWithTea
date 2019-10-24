@@ -6,7 +6,7 @@
         </trust-anchors>
     </base-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">https://infastory.com/api</domain>
+        <domain includeSubdomains="true">http://192.168.137.17:5050/api</domain>
 
     </domain-config>
 </network-security-config>

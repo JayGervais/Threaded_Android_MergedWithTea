@@ -99,7 +99,7 @@ public class AgentDetailActivity extends AppCompatActivity
 
         // agent booking data list
         Uri.Builder agentBookingURL = new Uri.Builder();
-        agentBookingURL.scheme("https").authority(DBHelper.apiAuth())
+        agentBookingURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("agent_booking_data.php")
                 .appendQueryParameter("AgentId", String.valueOf(agentId));
@@ -131,7 +131,7 @@ public class AgentDetailActivity extends AppCompatActivity
 
         // set text for agency
         Uri.Builder builder = new Uri.Builder();
-        builder.scheme("https").authority(DBHelper.apiAuth())
+        builder.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("agent_spinner_select.php")
                 .appendQueryParameter("AgencyId", String.valueOf(agentObj.getAgencyId()));

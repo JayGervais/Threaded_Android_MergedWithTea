@@ -74,7 +74,7 @@ public class BookingDetailActivity extends AppCompatActivity
 
         // string builder for api to get booking data
         Uri.Builder bookingURL = new Uri.Builder();
-        bookingURL.scheme("https").authority(DBHelper.apiAuth())
+        bookingURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("booking_data_select.php")
                 .appendQueryParameter("BookingId", String.valueOf(booking.getBookingId()));
@@ -86,7 +86,7 @@ public class BookingDetailActivity extends AppCompatActivity
 
         // get customer data for selected booking
         Uri.Builder customerURL = new Uri.Builder();
-        customerURL.scheme("https").authority(DBHelper.apiAuth())
+        customerURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("customer_data_select.php")
                 .appendQueryParameter("CustomerId", String.valueOf(booking.getCustomerId()));
@@ -99,7 +99,7 @@ public class BookingDetailActivity extends AppCompatActivity
 
         // agent booking data
         Uri.Builder agentBookingURL = new Uri.Builder();
-        agentBookingURL.scheme("https").authority(DBHelper.apiAuth())
+        agentBookingURL.scheme("http").encodedAuthority(DBHelper.apiAuth())
                 .appendPath("api")
                 .appendPath("booking_agent_data.php")
                 .appendQueryParameter("BookingId", String.valueOf(booking.getBookingId()));

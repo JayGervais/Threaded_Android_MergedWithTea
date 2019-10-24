@@ -226,21 +226,24 @@ public class AgentDB
                 super.onPostExecute(s);
                 try
                 {
-                    JSONArray jsonArray = new JSONArray(s);
-                    String[] agency = new String[jsonArray.length()];
-                    ArrayAdapter<Agency> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
-                    for (int i = 0; i < jsonArray.length(); i++)
+                    if(s!=null)
                     {
-                        JSONObject obj = jsonArray.getJSONObject(i);
+                        JSONArray jsonArray = new JSONArray(s);
+                        String[] agency = new String[jsonArray.length()];
+                        ArrayAdapter<Agency> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
+                        for (int i = 0; i < jsonArray.length(); i++)
+                        {
+                            JSONObject obj = jsonArray.getJSONObject(i);
 
-                        arrayAdapter.add(new Agency(Integer.parseInt(
-                                obj.getString("AgencyId")),
-                                obj.getString("AgncyAddress"),
-                                obj.getString("AgncyCity")));
+                            arrayAdapter.add(new Agency(Integer.parseInt(
+                                    obj.getString("AgencyId")),
+                                    obj.getString("AgncyAddress"),
+                                    obj.getString("AgncyCity")));
 
-                        agency[i] = obj.getString("AgncyAddress") + ", " + obj.getString("AgncyCity");
+                            agency[i] = obj.getString("AgncyAddress") + ", " + obj.getString("AgncyCity");
+                        }
+                        txt.setText(agency[0]);
                     }
-                    txt.setText(agency[0]);
                 } catch (JSONException e)
                 {
                     e.printStackTrace();
@@ -275,50 +278,53 @@ public class AgentDB
                 super.onPostExecute(s);
                 try
                 {
-                    JSONArray jsonArray = new JSONArray(s);
-                    String[] agency = new String[jsonArray.length()];
-                    String[] aFName = new String[jsonArray.length()];
-                    String[] aMName = new String[jsonArray.length()];
-                    String[] aLName = new String[jsonArray.length()];
-                    String[] aEmail = new String[jsonArray.length()];
-                    String[] aBPhone = new String[jsonArray.length()];
-                    String[] aPos = new String[jsonArray.length()];
-
-                    ArrayAdapter<Agent> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
-                    for (int i = 0; i < jsonArray.length(); i++)
+                    if(s!=null)
                     {
-                        JSONObject obj = jsonArray.getJSONObject(i);
+                        JSONArray jsonArray = new JSONArray(s);
+                        String[] agency = new String[jsonArray.length()];
+                        String[] aFName = new String[jsonArray.length()];
+                        String[] aMName = new String[jsonArray.length()];
+                        String[] aLName = new String[jsonArray.length()];
+                        String[] aEmail = new String[jsonArray.length()];
+                        String[] aBPhone = new String[jsonArray.length()];
+                        String[] aPos = new String[jsonArray.length()];
 
-                        arrayAdapter.add(new Agent(Integer.parseInt(obj.getString("AgentId")),
-                                obj.getString("AgtFirstName"),
-                                obj.getString("AgtMiddleInitial"),
-                                obj.getString("AgtLastName"),
-                                obj.getString("AgtBusPhone"),
-                                obj.getString("AgtEmail"),
-                                obj.getString("AgtPosition"),
-                                Integer.parseInt(obj.getString("AgencyId")),
-                                null));
-
-                        aFName[i] = obj.getString("AgtFirstName");
-                        if (aMName[i] != null)
+                        ArrayAdapter<Agent> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
+                        for (int i = 0; i < jsonArray.length(); i++)
                         {
-                            aMName[i] = obj.getString("AgtMiddleInitial");
-                        }
-                        aLName[i] = obj.getString("AgtLastName");
-                        aEmail[i] = obj.getString("AgtEmail");
-                        aBPhone[i] = obj.getString("AgtBusPhone");
-                        aPos[i] = obj.getString("AgtPosition");
+                            JSONObject obj = jsonArray.getJSONObject(i);
 
+                            arrayAdapter.add(new Agent(Integer.parseInt(obj.getString("AgentId")),
+                                    obj.getString("AgtFirstName"),
+                                    obj.getString("AgtMiddleInitial"),
+                                    obj.getString("AgtLastName"),
+                                    obj.getString("AgtBusPhone"),
+                                    obj.getString("AgtEmail"),
+                                    obj.getString("AgtPosition"),
+                                    Integer.parseInt(obj.getString("AgencyId")),
+                                    null));
+
+                            aFName[i] = obj.getString("AgtFirstName");
+                            if (aMName[i] != null)
+                            {
+                                aMName[i] = obj.getString("AgtMiddleInitial");
+                            }
+                            aLName[i] = obj.getString("AgtLastName");
+                            aEmail[i] = obj.getString("AgtEmail");
+                            aBPhone[i] = obj.getString("AgtBusPhone");
+                            aPos[i] = obj.getString("AgtPosition");
+
+                        }
+                        tvAgentFirstName.setText(aFName[0]);
+                        if (aMName[0] != null)
+                        {
+                            tvAgentMiddleInitial.setText(aMName[0]);
+                        }
+                        tvAgentLastName.setText(aLName[0]);
+                        tvAgtEmail.setText(aEmail[0]);
+                        tvAgtBusPhone.setText(aBPhone[0]);
+                        tvAgtPosition.setText(aPos[0]);
                     }
-                    tvAgentFirstName.setText(aFName[0]);
-                    if (aMName[0] != null)
-                    {
-                        tvAgentMiddleInitial.setText(aMName[0]);
-                    }
-                    tvAgentLastName.setText(aLName[0]);
-                    tvAgtEmail.setText(aEmail[0]);
-                    tvAgtBusPhone.setText(aBPhone[0]);
-                    tvAgtPosition.setText(aPos[0]);
                 } catch (JSONException e)
                 {
                     e.printStackTrace();

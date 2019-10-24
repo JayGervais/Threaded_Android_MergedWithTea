@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     useLibrary 'org.apache.http.legacy'
-    compileSdkVersion 29
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.day10_assignment_v1"
         minSdkVersion 23
