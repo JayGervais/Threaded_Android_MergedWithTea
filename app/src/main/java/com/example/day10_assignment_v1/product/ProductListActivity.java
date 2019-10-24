@@ -16,8 +16,7 @@ import android.widget.ListView;
 import com.example.day10_assignment_v1.DBHelper;
 import com.example.day10_assignment_v1.MainActivity;
 import com.example.day10_assignment_v1.R;
-//import com.example.day10_assignment_v1.agent.Agent;
-//import com.example.day10_assignment_v1.agent.AgentListActivity;
+
 import com.example.day10_assignment_v1.agent.AgentListActivity;
 import com.example.day10_assignment_v1.booking.BookingListActivity;
 import com.example.day10_assignment_v1.customer.CustomerListActivity;

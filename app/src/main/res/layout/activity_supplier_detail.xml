@@ -6,273 +6,225 @@
     android:layout_height="match_parent"
     tools:context=".supplier.SupplierDetailActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="100dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="139dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView53"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/textView56"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Supplier Detail"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView58"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="S"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView60"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Company : "
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView61"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="First Name :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView62"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Last Name :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView63"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Address :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView65"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="City :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView67"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Province :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView68"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Postal :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView69"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Country :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView70"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Business Phone :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView71"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fax :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView72"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView73"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Web URL :"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView90"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="AffiliationId :"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView54"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/textView57"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView80"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="27sp" />
-
-            <TextView
-                android:id="@+id/tvSupplierId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupContactId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConCompany"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConFirstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConLastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConCity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConProv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConPostal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConCountry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConBusPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConFax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvSupConURL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvAffiliationId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-    </LinearLayout>
-
     <Button
         android:id="@+id/btnUpdateSup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Update"
+        android:text="Update Supplier"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#22a15f"
+        android:textColor="#FFFFFF"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSupConCompany"
+        android:layout_width="401dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:text="Company Contact "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSupConLastName"
+        android:layout_width="174dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSupConBusPhone"
+        android:layout_width="160dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <TextView
+        android:id="@+id/tvSupConFirstName"
+        android:layout_width="163dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="196dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="4dp"
+        android:text="Phone : "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConFirstName" />
+
+    <TextView
+        android:id="@+id/tvSupConEmail"
+        android:layout_width="171dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="288dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAffiliationId"
+        android:layout_width="79dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="105dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="37dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="147dp"
+        android:text="Fax : "
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConLastName" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="97dp"
+        android:text="Affiliation ID :"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConFax" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="44dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="56dp"
+        android:text="Email : "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConBusPhone" />
+
+    <TextView
+        android:id="@+id/tvSupConFax"
+        android:layout_width="180dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="4dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Address "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConEmail" />
+
+    <TextView
+        android:id="@+id/tvSupConCity"
+        android:layout_width="167dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="56dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConAddress" />
+
+    <TextView
+        android:id="@+id/tvSupConProv"
+        android:layout_width="104dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="84dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConAddress" />
+
+    <TextView
+        android:id="@+id/tvSupConAddress"
+        android:layout_width="182dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+    <TextView
+        android:id="@+id/tvSupConCountry"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="12dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConProv" />
+
+    <TextView
+        android:id="@+id/tvSupConPostal"
+        android:layout_width="103dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="56dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConCity" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Web Site "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSupConPostal" />
+
+    <TextView
+        android:id="@+id/tvSupConURL"
+        android:layout_width="317dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="64dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

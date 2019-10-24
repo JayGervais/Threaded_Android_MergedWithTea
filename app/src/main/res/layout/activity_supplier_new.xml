@@ -39,63 +39,8 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Product ID: " />
 
-        <EditText
-            android:id="@+id/etProductId2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="THIS WILL BE COMBO BOX" />
-
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ProdName" />
-
-        <EditText
-            android:id="@+id/etProductId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="THIS WILL BE COMBO BOX" />
-
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SupplierId:" />
-
-        <EditText
-            android:id="@+id/etSupplierId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/tv22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Supplier Contact Id" />
-
-        <EditText
-            android:id="@+id/etSupplierContactId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-
-
-        <TextView
+                <TextView
             android:id="@+id/tv222"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -200,13 +145,14 @@
             android:layout_height="wrap_content"
             android:text="Business Phone:" />
 
-        <EditText
-            android:id="@+id/etSupConBusPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-        <TextView
+                <EditText
+                    android:id="@+id/etSupConBusPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+                <TextView
             android:id="@+id/tv31"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

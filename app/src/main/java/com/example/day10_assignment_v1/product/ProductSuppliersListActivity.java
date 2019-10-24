@@ -62,6 +62,26 @@ public class ProductSuppliersListActivity extends Fragment {
                 .appendQueryParameter("ProductId", prodId);
         String suppliersAPI = suppliersURL.build().toString();
 
+            lvSuppliers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), SupplierDetailActivity.class);
+                intent.putExtra("supplier",(Supplier) lvSuppliers.getItemAtPosition(position));
+                ProductSuppliersListActivity.this.startActivity(intent);
+                //startActivity(intent);
+            }
+        });
+
+
+
+
+            btnNewSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addSupplierIntent = new Intent(getActivity(), SupplierNewActivity.class);
+                ProductSuppliersListActivity.this.startActivity(addSupplierIntent);
+            }
+        });
         //ProductDB.GetProductSupplierText(suppliersAPI,this,lvSuppliers);
         SupplierDB.SelectedSupplierData(suppliersAPI,getActivity().getApplicationContext(),lvSuppliers);}
 

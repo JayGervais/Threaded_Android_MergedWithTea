@@ -128,7 +128,7 @@ public class AgentEditActivity  extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-               if (validateAgt()==true){
+              // if (validateAgt()==true){
 
                     // getAgentTextData();
                     Agency agentSelect = (Agency) spinAgencies.getSelectedItem();
@@ -149,7 +149,7 @@ public class AgentEditActivity  extends AppCompatActivity
                     intent.putExtra("agentId", etAgentId.getText());
                     AgentEditActivity.this.startActivity(savedIntent);
                 }
-            }});
+            });
 
         btnDelete.setOnClickListener(new View.OnClickListener()
         {
@@ -187,40 +187,40 @@ public class AgentEditActivity  extends AppCompatActivity
 
         AgencyDB.GetAgencyDataDropdown(DBHelper.apiURL() + "/api/agency_dropdown.php", this, spinAgencies);
     }
-    public boolean validateAgt(){
-        String alpha = etAgtFirstName.getText().toString();
-        if (!Validation.isValidAlpha(alpha)) {
-            etAgtFirstName.setError(getString(R.string.Alpha));
-            return false;
-        }
-        alpha = etAgtMiddleInitial.getText().toString();
-        if (!Validation.isValidAlphaOrNull(alpha)) {
-            etAgtMiddleInitial.setError(getString(R.string.Alpha));
-            return false;
-        }
-        alpha = etAgtLastName.getText().toString();
-        if (!Validation.isValidAlpha(alpha)) {
-            etAgtLastName.setError(getString(R.string.Alpha));
-            return false;
-        }
-        String phone = etAgtBusPhone.getText().toString();
-        if (!Validation.isValidPhoneNum(phone)) {
-            etAgtBusPhone.setError(getString(R.string.Phone));
-            return false;
-        }
-        String email = etAgtEmail.getText().toString();
-        if (!Validation.isValidEmail(email)) {
-            etAgtEmail.setError(getString(R.string.Email));
-            return false;
-        }
-        alpha = etAgtPosition.getText().toString();
-        if (!Validation.isValidAlpha(alpha)) {
-            etAgtPosition.setError(getString(R.string.Alpha));
-            return false;
-        } else {
-            return true;
-
-        }
-    }
+//    public boolean validateAgt(){
+//        String alpha = etAgtFirstName.getText().toString();
+//        if (!Validation.isValidAlpha(alpha)) {
+//            etAgtFirstName.setError(getString(R.string.Alpha));
+//            return false;
+//        }
+//        alpha = etAgtMiddleInitial.getText().toString();
+//        if (!Validation.isValidAlphaOrNull(alpha)) {
+//            etAgtMiddleInitial.setError(getString(R.string.Alpha));
+//            return false;
+//        }
+//        alpha = etAgtLastName.getText().toString();
+//        if (!Validation.isValidAlpha(alpha)) {
+//            etAgtLastName.setError(getString(R.string.Alpha));
+//            return false;
+//        }
+//        String phone = etAgtBusPhone.getText().toString();
+//        if (!Validation.isValidPhoneNum(phone)) {
+//            etAgtBusPhone.setError(getString(R.string.Phone));
+//            return false;
+//        }
+//        String email = etAgtEmail.getText().toString();
+//        if (!Validation.isValidEmail(email)) {
+//            etAgtEmail.setError(getString(R.string.Email));
+//            return false;
+//        }
+//        alpha = etAgtPosition.getText().toString();
+//        if (!Validation.isValidAlpha(alpha)) {
+//            etAgtPosition.setError(getString(R.string.Alpha));
+//            return false;
+//        } else {
+//            return true;
+//
+//        }
+//    }
 
 }
