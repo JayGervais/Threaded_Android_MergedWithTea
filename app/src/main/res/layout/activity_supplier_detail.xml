@@ -10,11 +10,11 @@
         android:id="@+id/btnUpdateSup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#090c63"
         android:text="Update Supplier"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#22a15f"
-        android:textColor="#FFFFFF"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -26,6 +26,7 @@
         android:fontFamily="sans-serif-black"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textColor="#090c63"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

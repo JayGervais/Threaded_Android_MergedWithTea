@@ -153,11 +153,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
-            android:background="#22a15f"
-            android:textColor="#FFFFFF"
+            android:background="#090c63"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="Edit Agent"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

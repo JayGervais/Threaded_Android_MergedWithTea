@@ -116,7 +116,7 @@
         android:id="@+id/btnUpdateCust"
         android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:background="#22a15f"
+        android:background="#090c63"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="Update Customer"

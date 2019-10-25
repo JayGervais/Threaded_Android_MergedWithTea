@@ -11,16 +11,30 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.day10_assignment_v1.DBHelper;
 
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CustomerDB
@@ -143,6 +157,74 @@ public class CustomerDB
         DownloadJSON getJSON = new DownloadJSON();
         getJSON.execute();
     }
+
+//        public static void UpdateCustomer(final String customerId, final String custFirstName, final String custLastName,
+//        final String custAddress, final String custCity, final String custProv,
+//        final String custPostal, final String custCountry, final String custHomePhone, final String custBusPhone,
+//        final String custEmail, final String agentId,final String apiSecret,
+//        final String url, final Context context)
+//        {
+//
+//        class SendPostReqAsyncTask extends AsyncTask<String, Void, String>
+//        {
+//
+//
+//            @Override
+//            protected  String doInBackground(String... params){
+//                List<NameValuePair> values = new ArrayList<>();
+//                values.add(new BasicNameValuePair("customerId", customerId));
+//                values.add(new BasicNameValuePair("custFirstName", custFirstName));
+//                values.add(new BasicNameValuePair("custLastName", custLastName));
+//                values.add(new BasicNameValuePair("custAddress", custAddress));
+//                values.add(new BasicNameValuePair("custCity", custCity));
+//                values.add(new BasicNameValuePair("custProv", custProv));
+//                values.add(new BasicNameValuePair("custPostal", custPostal));
+//                values.add(new BasicNameValuePair("custCountry", custCountry));
+//                values.add(new BasicNameValuePair("custHomePhone", custHomePhone));
+//                values.add(new BasicNameValuePair("custBusPhone", custBusPhone));
+//                values.add(new BasicNameValuePair("custEmail", custEmail));
+//                values.add(new BasicNameValuePair("agentId", agentId));
+//                values.add(new BasicNameValuePair("apiSecret", apiSecret));
+//
+//                try
+//                {
+//                    HttpClient httpClient = new DefaultHttpClient();
+//                    HttpPost httpPost = new HttpPost(url);
+//                    httpPost.setEntity(new UrlEncodedFormEntity(values));
+//                    HttpResponse httpResponse = httpClient.execute(httpPost);
+//                    HttpEntity httpEntity = httpResponse.getEntity();
+//
+//                } catch (ClientProtocolException e)
+//                {
+//                } catch (IOException e)
+//                {
+//                    return "Could not update database";
+//                }
+//                return "Customer Updated Successfully";
+//            }
+//            @Override
+//            protected void onPostExecute(String result)
+//            {
+//                super.onPostExecute(result);
+//            }
+//
+//        }
+//
+//            SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
+//            sendPostReqAsyncTask.execute(customerId, custFirstName, custLastName, custAddress, custCity, custProv, custPostal, custCountry,custHomePhone,custBusPhone,custEmail,agentId, apiSecret);
+//
+//
+//        }
+
+
+
+
+
+
+
+
+
+
     public static void UpdateCustomer(final String customerId, final String custFirstName, final String custLastName,
                                       final String custAddress, final String custCity, final String custProv,
                                       final String custPostal, final String custCountry, final String custHomePhone, final String custBusPhone,

@@ -74,6 +74,7 @@ public class CustomerNewActivity extends AppCompatActivity {
                             "sait_oosd_2019_updateSecret",
                             DBHelper.apiURL() + "/api/customer_add.php",
                             CustomerNewActivity.this);
+
                     Toast.makeText(CustomerNewActivity.this, "New Customer Added", Toast.LENGTH_LONG).show();
                     Intent savedIntent = new Intent(CustomerNewActivity.this, CustomerListActivity.class);
                     CustomerNewActivity.this.startActivity(savedIntent);

@@ -84,7 +84,7 @@ public class AdminDB
                 super.onPostExecute(s);
                 try
                 {
-                    JSONArray jsonArray = new JSONArray(s);
+                   JSONArray jsonArray = new JSONArray(s);
 
                     ArrayAdapter<Admin> arrayAdapter = new ArrayAdapter<>(cont, android.R.layout.simple_list_item_1);
                     String[] adminId = new String[jsonArray.length()];
